@@ -1,9 +1,11 @@
-NAME			= megaphone
+NAME			= PhoneBook
 
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra
 
-SRCS			= megaphone.cpp \
+SRCS			=	PhoneBook.cpp \
+					Contact.cpp \
+					main.cpp \
 
 OBJS			= $(SRCS:.cpp=.o)
 
@@ -24,7 +26,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 		@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-		@echo "\n$(GREEN)megaphone Compiled! ✅$(RESET_COLOR)\n"
+		@echo "\n$(GREEN)PhoneBook Compiled! ✅$(RESET_COLOR)\n"
 
 %.o: %.c
 		@$(CC) $(FLAGS) -c $< -o $@
@@ -44,7 +46,7 @@ clean :
 
 fclean : clean
 		@rm -f $(NAME)
-		@echo "$(RED)megaphone cleaned ! ✅$(RESET_COLOR)\n"
+		@echo "$(RED)PhoneBook cleaned ! ✅$(RESET_COLOR)\n"
 
 re:	fclean all
 
