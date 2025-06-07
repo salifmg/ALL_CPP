@@ -6,14 +6,14 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 17:10:20 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/03 18:49:58 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/07 20:37:16 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <string>
 
 int	ft_strcmp(char *s1, const char *s2)
 {
@@ -38,21 +38,34 @@ int	ft_strcmp(char *s1, const char *s2)
 
 int main(void)
 {
-	char *task;
-	const char *ADD = "ADD";
-	const char *SEARCH = "SEARCH";
-	const char *EXIT = "EXIT";
-	// int stock_task = 0;
+	std::string task;
+	const std::string ADD = "ADD";
+	const std::string SEARCH = "SEARCH";
+	const std::string EXIT = "EXIT";
 	PhoneBook instance;
 	Contact instance2;
 
-	std::cin >> task;
-	// stock_task = instance.compare(task);
-	if (ft_strcmp(task, ADD) == 0)
-		std::cout << "ADD" << std::endl;
-	else if (ft_strcmp(task, SEARCH) == 0)
-		std::cout << "SEARCH" << std::endl;
-	else if (ft_strcmp(task, EXIT) == 0)
-		std::cout << "EXIT" << std::endl;
+	while (1)
+	{
+		std::cout << "SELECT A COMMAND ('ADD', 'SEARCH', 'EXIT'): ";
+		if (!(std::getline(std::cin ,task)))
+			break;
+		if (task == ADD)
+		{
+			instance.new_contact();
+			std::cout << "ADD" << std::endl;
+			continue;
+		}
+		else if (task == SEARCH)
+		{
+			std::cout << "SEARCH" << std::endl;
+			continue;
+		}
+		else if (task == EXIT)
+		{
+			std::cout << "EXIT" << std::endl;
+			break;
+		}
+	}
 	return (0);
 }

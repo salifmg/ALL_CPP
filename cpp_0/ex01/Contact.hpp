@@ -6,18 +6,30 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:59:42 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/03 17:31:59 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/07 20:49:32 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
+#include <iostream>
+#include "PhoneBook.hpp"
 
 class Contact {
 
-public:
+private:
+	std::string FirstName;
+	std::string LastName;
+	std::string NickName;
+	std::string PhoneNumber;
+	std::string DarkestSecret;
+	
+	public:
 		Contact(void);
 		~Contact(void);
+	
+		void	add_contact(void);
+//TABLEAU STOCK LES CONTACTS
 };
 
 #endif
