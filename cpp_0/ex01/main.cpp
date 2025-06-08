@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 17:10:20 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/07 20:37:16 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/08 19:44:19 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,29 @@ int	ft_strcmp(char *s1, const char *s2)
 
 int main(void)
 {
-	std::string task;
+	std::string cmd;
 	const std::string ADD = "ADD";
 	const std::string SEARCH = "SEARCH";
 	const std::string EXIT = "EXIT";
 	PhoneBook instance;
-	Contact instance2;
 
 	while (1)
 	{
 		std::cout << "SELECT A COMMAND ('ADD', 'SEARCH', 'EXIT'): ";
-		if (!(std::getline(std::cin ,task)))
+		if (!(std::getline(std::cin, cmd)))
 			break;
-		if (task == ADD)
+		if (cmd == ADD)
 		{
 			instance.new_contact();
-			std::cout << "ADD" << std::endl;
 			continue;
 		}
-		else if (task == SEARCH)
+		else if (cmd == SEARCH)
 		{
-			std::cout << "SEARCH" << std::endl;
+			instance.search();
 			continue;
 		}
-		else if (task == EXIT)
+		else if (cmd == EXIT)
 		{
-			std::cout << "EXIT" << std::endl;
 			break;
 		}
 	}
