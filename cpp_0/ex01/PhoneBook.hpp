@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:39 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/08 19:43:21 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/09 17:31:25 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	private:
 		Contact all_contacts[8];
 		int		new_ctact_pos = 0;
+		int		total_ctact = 0;
 		
 };
 

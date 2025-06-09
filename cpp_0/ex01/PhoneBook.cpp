@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:36 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/08 20:48:36 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/09 20:51:03 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,15 @@ void PhoneBook::new_contact(){
 	{
 		all_contacts[new_ctact_pos].add_contact();
 		new_ctact_pos++;
+		if (total_ctact != 8)
+			total_ctact++;
 	}
 	else
 	{
 		std::cout << "LIMIT OF 8 CONTACTS REACHED, OVERWRITING THE OLDEST ONES" << std::endl;
 		new_ctact_pos = 0;
 		all_contacts[new_ctact_pos].add_contact();
+		new_ctact_pos++;
 	}
 	return ;
 }
@@ -46,8 +49,14 @@ void PhoneBook::search(){
 	std::string	index;
 	int index_converted = 0;
 
-	while (++i != new_ctact_pos)
-		all_contacts[i].display_contact(i + 1);
+	if (total_ctact == 0)
+	{
+		std::cout << "PLEASE CREATE AT LEAST ONE CONTACT" << std::endl;
+		std::cout << "" << std::endl;
+        return ;
+	}
+	while (++i != total_ctact)
+		all_contacts[i].display_contact_list(i + 1);
 	while (1)
 	{
 		std::cout << "ENTER INDEX OF DESIRED CONTACT : ";
@@ -62,7 +71,7 @@ void PhoneBook::search(){
 		index_converted	= atoi(index.c_str()) - 1;
 		if (index_converted >= 0 && index_converted <= 8)
 		{
-			if (all_contacts[index_converted].display_contact(index_converted + 1) == 1)
+			if (all_contacts[index_converted].display_full_contact(index_converted + 1) == 1)
 				continue;
 		}
 		else
@@ -74,4 +83,3 @@ void PhoneBook::search(){
 	}
 	return;
 }
-//affichage tableau

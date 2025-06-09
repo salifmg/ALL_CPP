@@ -6,11 +6,12 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 17:11:34 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/08 20:45:55 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/09 20:49:36 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <iomanip> 
 
 Contact::Contact(void){
 
@@ -57,13 +58,58 @@ void Contact::add_contact(){
 		return ;
 }
 
-int Contact::display_contact(int index){
+void Contact::display_contact_list(int index){
+
+	std::string FIRSTNAME_CROPPED = this->FirstName;
+	std::string LASTNAME_CROPPED = this->LastName;
+	std::string NICKNAME_CROPPED = this->NickName;
+	std::string PHONENUMBER_CROPPED = this->PhoneNumber;
+	if (FIRSTNAME_CROPPED.length() > 10)
+	{
+		FIRSTNAME_CROPPED.resize(9);
+		FIRSTNAME_CROPPED += '.';
+	}
+	if (LASTNAME_CROPPED.length() > 10)
+	{
+		LASTNAME_CROPPED.resize(9);
+		LASTNAME_CROPPED += '.';
+	}
+	if (NICKNAME_CROPPED.length() > 10)
+	{
+		NICKNAME_CROPPED.resize(9);
+		NICKNAME_CROPPED += '.';
+	}
+	if (PHONENUMBER_CROPPED.length() > 10)
+	{
+		PHONENUMBER_CROPPED.resize(9);
+		PHONENUMBER_CROPPED += '.';
+	}
+	std::cout << std::setfill ('-') << std::setw (45) << "" << std::endl;
+	std::cout	<< "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << "FIRSTNAME" << "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << "LASTNAME" << "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << "NICKNAME" << "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << "PHONE NMBR" << "|"
+				<< std::endl;
+	std::cout << std::setfill ('-') << std::setw (45) << "" << std::endl;
+	std::cout	<< "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << FIRSTNAME_CROPPED << "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << LASTNAME_CROPPED << "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << NICKNAME_CROPPED << "|"
+				<< std::setw(10) << std::setfill(' ') << std::right << PHONENUMBER_CROPPED << "|"
+				<< std::endl;
+	std::cout << std::setfill ('-') << std::setw (45) << "" << std::endl;
+	return ;
+}
+
+int Contact::display_full_contact(int index){
 
 	if (this->FirstName.empty())
 	{
 		std::cout << "PLEASE INPUT AN VALID INDEX" << std::endl;
 		return (1);
 	}
+	std::cout << "" << std::endl;
 	std::cout << "FIRSTNAME : " << this->FirstName << std::endl;
 	std::cout << "LASTNAME : " << this->LastName << std::endl;
 	std::cout << "NICKNAME : " << this->NickName << std::endl;
@@ -73,4 +119,5 @@ int Contact::display_contact(int index){
 	return (0);
 }
 
-//LUI GET LES BAILS EN PV
+//AFFICHE INDEX ?
+//NORME CAMELTOE
