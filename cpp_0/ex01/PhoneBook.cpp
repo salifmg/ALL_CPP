@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:36 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/09 20:51:03 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/14 18:06:45 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ PhoneBook::PhoneBook(void){
 
 PhoneBook::~PhoneBook(void){
 
-	std::cout << "" << std::endl;
-	std::cout << "DELETING ALL INFORMATIONS SAVED" << std::endl;
+	std::cout << "\nDELETING ALL INFORMATIONS SAVED" << std::endl;
 	return;
 }
 
@@ -51,8 +50,7 @@ void PhoneBook::search(){
 
 	if (total_ctact == 0)
 	{
-		std::cout << "PLEASE CREATE AT LEAST ONE CONTACT" << std::endl;
-		std::cout << "" << std::endl;
+		std::cout << "PLEASE CREATE AT LEAST ONE CONTACT\n" << std::endl;
         return ;
 	}
 	while (++i != total_ctact)
@@ -76,7 +74,7 @@ void PhoneBook::search(){
 		}
 		else
 		{
-			std::cout << "THE INDEX BE NEGATIVE NOR, INVALID\n" << std::endl;
+			std::cout << "THE INDEX SHOULD'T BE NEGATIVE NOR, INVALID\n" << std::endl;
 			continue;
 		}
 		break;

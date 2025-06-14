@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 17:11:34 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/09 20:49:36 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/14 17:58:59 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,15 +109,10 @@ int Contact::display_full_contact(int index){
 		std::cout << "PLEASE INPUT AN VALID INDEX" << std::endl;
 		return (1);
 	}
-	std::cout << "" << std::endl;
-	std::cout << "FIRSTNAME : " << this->FirstName << std::endl;
+	std::cout << "\nFIRSTNAME : " << this->FirstName << std::endl;
 	std::cout << "LASTNAME : " << this->LastName << std::endl;
 	std::cout << "NICKNAME : " << this->NickName << std::endl;
 	std::cout << "PHONE NUMBER : " << this->PhoneNumber << std::endl;
-	std::cout << "DARKEST SECRET : " << this->DarkestSecret << std::endl;
-	std::cout << "" << std::endl;
+	std::cout << "DARKEST SECRET : " << this->DarkestSecret << std::endl << std::endl;
 	return (0);
 }
-
-//AFFICHE INDEX ?
-//NORME CAMELTOE

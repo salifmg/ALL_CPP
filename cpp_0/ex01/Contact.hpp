@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:59:42 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/09 20:49:06 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/14 17:29:15 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ private:
 		void	display_contact_list(int);
 		int		display_full_contact(int);
 
-//TABLEAU STOCK LES CONTACTS
 };
 
 #endif
-
