@@ -1,11 +1,12 @@
-NAME			= PhoneBook
+NAME			= zombie
 
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra
 
-SRCS			=	PhoneBook.cpp \
-					Contact.cpp \
-					main.cpp \
+SRCS			=	Zombie.cpp \
+					newZombie.cpp \
+					randomChump.cpp \
+					main.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
@@ -26,7 +27,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 		@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-		@echo "\n$(GREEN)PhoneBook Compiled! ✅$(RESET_COLOR)\n"
+		@echo "\n$(GREEN)Zombies Compiled! ✅$(RESET_COLOR)\n"
 
 %.o: %.cpp
 		@$(CC) $(FLAGS) -c $< -o $@
@@ -46,7 +47,7 @@ clean :
 
 fclean : clean
 		@rm -f $(NAME)
-		@echo "$(RED)PhoneBook cleaned ! ✅$(RESET_COLOR)\n"
+		@echo "$(RED)Zombies cleaned ! ✅$(RESET_COLOR)\n"
 
 re:	fclean all
 
