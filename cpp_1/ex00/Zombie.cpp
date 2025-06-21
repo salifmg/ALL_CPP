@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 19:16:17 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/15 21:06:19 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/06/21 15:54:08 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,4 @@ void Zombie::announce(void){
 
 	std::cout << this->name + ": " + Phrase << std::endl;
 	return;
-}
-
-std::string Zombie::get_name(){
-
-	return (this->name);
 }
