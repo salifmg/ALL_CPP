@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 16:59:42 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/30 16:58:15 by smagassa         ###   ########.fr       */
+/*   Created: 2025/06/30 17:52:51 by smagassa          #+#    #+#             */
+/*   Updated: 2025/06/30 18:13:57 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef HARL_CPP
+#define HARL_CPP
 #include <iostream>
 #include <string>
 
-class Contact {
+
+class Harl {
+
+public:
+		Harl(void);
+		~Harl(void);
+		void complain(std::string level);
 
 private:
-	std::string FirstName;
-	std::string LastName;
-	std::string NickName;
-	std::string PhoneNumber;
-	std::string DarkestSecret;
-	
-	public:
-		Contact(void);
-		~Contact(void);
-	
-		void	add_contact(void);
-		void	display_contact_list(int);
-		int		display_full_contact(int);
-
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
 };
 
 #endif

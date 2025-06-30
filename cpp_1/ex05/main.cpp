@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 16:59:42 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/30 16:58:15 by smagassa         ###   ########.fr       */
+/*   Created: 2025/06/27 13:33:17 by smagassa          #+#    #+#             */
+/*   Updated: 2025/06/30 18:45:39 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
-#include <iostream>
-#include <string>
+#include "Harl.hpp"
 
-class Contact {
+int main(void)
+{
+	Harl customer;
+	std::string level;
 
-private:
-	std::string FirstName;
-	std::string LastName;
-	std::string NickName;
-	std::string PhoneNumber;
-	std::string DarkestSecret;
-	
-	public:
-		Contact(void);
-		~Contact(void);
-	
-		void	add_contact(void);
-		void	display_contact_list(int);
-		int		display_full_contact(int);
+	while (1)
+	{
+		std::cout << "Enter a complain : ";
+		std::getline(std::cin, level);
+		if (std::cin.eof())
+            break;
 
-};
-
-#endif
+		customer.complain(level);
+	}
+	return (0);
+}
