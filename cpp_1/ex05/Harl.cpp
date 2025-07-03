@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:52:53 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/30 19:02:48 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/03 17:13:54 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,31 @@ Harl::~Harl(void)
 
 void Harl::complain(std::string level)
 {
-// declare a pointer to member function
-  	// Harl ptfptr = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	if (level == "DEBUG")
-		debug();
-	else if (level == "INFO")
-		info();
-	else if (level == "WARNING")
-		warning();
-	else if (level == "ERROR")
-		error();
-	else
+	int flag_complain = 1;
+	
+	std::vector<std::string> all_levels;
+    all_levels.push_back("DEBUG");
+    all_levels.push_back("INFO");
+    all_levels.push_back("WARNING");
+    all_levels.push_back("ERROR");
+	// const char* arr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+    std::vector<void (Harl::*)()> diff_complain;	
+    diff_complain.push_back(&Harl::debug);
+    diff_complain.push_back(&Harl::info);
+    diff_complain.push_back(&Harl::warning);
+    diff_complain.push_back(&Harl::error);
+	//void (Harl::*arr2[])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+
+	for (int i = 0 ; i < 4; i++)
+	{
+		if (level == all_levels[i])
+		{
+			(this->*diff_complain[i])();
+			flag_complain = 0;
+		} 
+	}
+	if (flag_complain == 1)
 		std::cout << "Enter a valid complain <DEBUG> <INFO> <WARNING> <ERROR>" << std::endl;
 	return;
 }
