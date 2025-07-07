@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:39:07 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/06 17:40:32 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/07 16:08:34 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ class Fixed {
 
 public:
 		Fixed();
-		~Fixed();
-
-		// Un constructeur de recopie.
 		Fixed(const Fixed& FixedCpy);
-		// Une surcharge de l’opérateur d’affectation
 		Fixed& operator=(const Fixed& FixedCpy);
+		~Fixed();
+	
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 
