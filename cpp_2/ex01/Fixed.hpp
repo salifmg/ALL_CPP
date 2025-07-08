@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:39:07 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/08 17:41:01 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:53:57 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FIXED_HPP
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed {
 
@@ -23,12 +24,20 @@ public:
 		Fixed& operator=(const Fixed& FixedCpy);
 		~Fixed();
 	
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 
-	private:
+		Fixed(const int Value);
+		Fixed(const float Value);
+		
+		float toFloat(void) const;
+		int toInt(void) const;
+		
+		private:
 		int comma_value;
-		static const int bits_nbr_fractiona = 8;
-};
-
+		static const int bits_nbr_fractional = 8;
+	};
+	
+	std::ostream& operator<<(std::ostream &o, const Fixed &ex);
+	
 #endif

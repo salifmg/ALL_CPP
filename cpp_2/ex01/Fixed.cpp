@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:39:09 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/08 17:00:59 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:47:09 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,29 @@ Fixed::Fixed() :comma_value(0) {
 	return;
 }
 
-Fixed::~Fixed() {
+Fixed::Fixed(const int Value) {
 
-	std::cout << "Default destructor called" << std::endl;
+	this->comma_value = Value << bits_nbr_fractional;
+	std::cout << "Int constructor called" << std::endl;
+	return;
+}
+
+Fixed::Fixed(const float Value) {
+
+	this->comma_value = roundf(Value * (1 << bits_nbr_fractional)); // PAREIL QUE * 256
+	std::cout << "Float constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed(const Fixed& FixedCpy) : comma_value(FixedCpy.getRawBits()){
 
 	std::cout << "Copy constructor called" << std::endl;
+	return;
+}
+
+Fixed::~Fixed() {
+
+	std::cout << "Destructor called" << std::endl;
 	return;
 }
 
@@ -37,13 +51,29 @@ Fixed& Fixed::operator=(const Fixed& FixedCpy) {
 	return(*this);
 }
 
-int Fixed::getRawBits( void ) const {
-
-	return(std::cout << "getRawBits member function called" << std::endl, this->comma_value);
+std::ostream &operator<<(std::ostream &o, const Fixed &ex)
+{
+    o << ex.toFloat();
+    return (o);
 }
 
-void Fixed::setRawBits( int const raw ){
+int Fixed::getRawBits( void ) const {
+
+	return(this->comma_value);
+}
+
+void Fixed::setRawBits( int const raw ) {
 
 	this->comma_value = raw;
 	return;
+}
+
+float Fixed::toFloat(void) const {
+
+	return ((float)comma_value / (1 << bits_nbr_fractional));
+}
+
+int Fixed::toInt(void) const {
+
+	return (this->comma_value / 256.0f);
 }
