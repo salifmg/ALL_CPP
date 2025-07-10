@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:39:07 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/08 18:53:57 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:06:52 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,34 @@ public:
 		float toFloat(void) const;
 		int toInt(void) const;
 		
+
+		bool operator>(const Fixed& member_func);
+		bool operator<(const Fixed& member_func);
+		bool operator>=(const Fixed& member_func);
+		bool operator<=(const Fixed& member_func);
+		bool operator==(const Fixed& member_func);
+		bool operator!=(const Fixed& member_func);
+
+		Fixed operator+(const Fixed& member_func);
+		Fixed operator-(const Fixed& member_func);
+		Fixed operator*(const Fixed& member_func);
+		Fixed operator/(const Fixed& member_func);
+
+		Fixed& operator++();
+		Fixed& operator--();
+		Fixed operator++(int);
+		Fixed operator--(int);
+
+
+		static Fixed min(Fixed& a, Fixed& b);
+		static const Fixed min(const Fixed& a, const Fixed& b);
+
+		static Fixed max(Fixed& a, Fixed& b);
+		static const Fixed max(const Fixed& a, const Fixed& b);
+
 		private:
-		int comma_value;
-		static const int bits_nbr_fractional = 8;
+			int comma_value;
+			static const int bits_nbr_fractional = 8;
 	};
 	
 	std::ostream& operator<<(std::ostream &o, const Fixed &ex);

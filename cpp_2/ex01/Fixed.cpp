@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 18:39:09 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/09 15:08:16 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/10 20:08:34 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,27 +76,4 @@ float Fixed::toFloat(void) const {
 int Fixed::toInt(void) const {
 
 	return (this->comma_value / 256.0f);
-}
-
-
-
-Fixed& Fixed::min(Fixed& a, Fixed& b){
-
-	//operateur de cmp > et <
-	return;
-}
-
-const Fixed& Fixed::min(const Fixed& a, const Fixed& b){
-
-	return;
-}
-
-Fixed& Fixed::max(Fixed& a, Fixed& b){
-
-	return;
-}
-
-const Fixed& Fixed::max(const Fixed& a, const Fixed& b){
-
-	return;
 }

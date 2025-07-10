@@ -1,4 +1,4 @@
-NAME			= Fixed3
+NAME			= Fixed2
 
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra
@@ -26,7 +26,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 		@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-		@echo "\n$(GREEN)Fixed3 Compiled! ✅$(RESET_COLOR)\n"
+		@echo "\n$(GREEN)Fixed2 Compiled! ✅$(RESET_COLOR)\n"
 
 %.o: %.cpp
 		@$(CC) $(FLAGS) -c $< -o $@
@@ -46,7 +46,7 @@ clean :
 
 fclean : clean
 		@rm -f $(NAME)
-		@echo "$(RED)Fixed3 cleaned ! ✅$(RESET_COLOR)\n"
+		@echo "$(RED)Fixed2 cleaned ! ✅$(RESET_COLOR)\n"
 
 re:	fclean all
 
