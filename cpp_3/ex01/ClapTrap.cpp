@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:07 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/12 19:12:18 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/12 20:39:20 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,11 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << Name << " hasn't enought hit points to repair" << std::endl;
 	else if (Energy_points <= 0)
 		std::cout << Name << " hasn't enought energy to repair" << std::endl;
+	return;
+}
+
+ClapTrap::ClapTrap(){
+
+	std::cout << "Default constructor called" << std::endl;
 	return;
 }

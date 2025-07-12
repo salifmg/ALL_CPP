@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:11 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/12 19:08:04 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/12 20:54:04 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int main(void)
 	obj.takeDamage(0);
 	obj3.takeDamage(0);
 	std::cout << std::endl;
+
+	//MODIFIE LE MAIN PR TT TESTER
 	return (0);
 }
 
