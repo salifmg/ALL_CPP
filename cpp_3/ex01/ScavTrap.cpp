@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 19:32:39 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/12 20:53:22 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/13 19:55:09 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ ScavTrap::ScavTrap(std::string Name) {
 	this->Hit_points = 100;
 	this->Energy_points = 50;
 	this->Attack_damage = 20;
-	std::cout << "Inherited constructor called" << std::endl;
+	std::cout << "ScavTrap constructor called" << std::endl;
 	return;
 }
 
 ScavTrap::~ScavTrap() {
 
-	std::cout << "Inherited destructor called" << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 	return;
 }
 
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(const ScavTrap& FixedCpy)
 	this->Hit_points = FixedCpy.Hit_points;
 	this->Energy_points = FixedCpy.Energy_points;
 	this->Attack_damage = FixedCpy.Attack_damage;
-	std::cout << "Inherited Copy constructor called" << std::endl;
+	std::cout << "ScavTrap Copy constructor called" << std::endl;
 	return;
 }
 
@@ -55,6 +55,9 @@ void ScavTrap::attack(const std::string& target) {
 
 void ScavTrap::guardGate(void){
 
-	std::cout << "THE GUARD IS PROTECTING THE GATE" << std::endl;
+	if (Hit_points > 0)
+		std::cout << Name << " is now in Gatekeeper mode" << std::endl;
+	else
+		std::cout << Name << " cannot be in Gatekeeper mode because of its health" << std::endl;
 	return;
 }

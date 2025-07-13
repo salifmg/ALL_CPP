@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:07 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/12 20:39:20 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/13 20:18:45 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		Hit_points -= amount;
 		if (Hit_points < 0)
 			Hit_points = 0;
-		std::cout << "Lost : " << amount << " amount of Hit_points, and has : "<< Hit_points << " left"<< std::endl;
+		std::cout << "Lost : " << amount << " Hit_points, and has : "<< Hit_points << " left"<< std::endl;
 	}
 	else if (Hit_points <= 0)
 		std::cout << Name << " hasn't enought hit points to take damage" << std::endl;
@@ -78,7 +78,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	if (Hit_points > 0 && Energy_points > 0)
 	{
 		Hit_points += amount;
-		std::cout << "Regain : " << amount << " amount of Hit_points, and has : "<< Hit_points << " left"<< std::endl;
+		std::cout << "Regain : " << amount << " Hit_points, and has : "<< Hit_points << " left"<< std::endl;
 		Energy_points -= 1;
 		std::cout << "ClapTrap lost an energy point and has : " << Energy_points << " left" << std::endl;
 	}
@@ -89,8 +89,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	return;
 }
 
-ClapTrap::ClapTrap(){
+ClapTrap::ClapTrap() :Name(""), Hit_points(10), Energy_points(10), Attack_damage(0){
 
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 	return;
 }
