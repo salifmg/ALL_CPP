@@ -3,7 +3,8 @@ NAME			= FragTrap
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra
 
-SRCS			=	FragTrap.cpp \
+SRCS			=	ClapTrap.cpp \
+					FragTrap.cpp \
 					main.cpp
 
 

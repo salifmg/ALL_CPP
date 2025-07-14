@@ -6,12 +6,12 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:11 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/14 17:49:41 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/14 17:55:15 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -19,13 +19,13 @@ int main(void)
 	ClapTrap obj2(obj);
 	std::cout << std::endl;
 
-	ScavTrap inherit_obj("Third");
-	ScavTrap inherit_obj2(inherit_obj);
+	FragTrap inherit_obj("Third");
+	FragTrap inherit_obj2(inherit_obj);
 	std::cout << std::endl;
 
 	inherit_obj.attack("Second");
 	inherit_obj2.takeDamage(0);
-	inherit_obj.guardGate();
+	inherit_obj.highFivesGuys();
 	std::cout << std::endl;
 
 	inherit_obj.attack("again");
@@ -46,7 +46,7 @@ int main(void)
 	inherit_obj.takeDamage(14);
 	std::cout << std::endl;
 
-	ScavTrap inherit_obj3 = inherit_obj;
+	FragTrap inherit_obj3 = inherit_obj;
 	inherit_obj3.attack("copy no energy");
 	inherit_obj3.beRepaired(100);
 	inherit_obj3.takeDamage(10000);
@@ -54,7 +54,7 @@ int main(void)
 
 	inherit_obj.takeDamage(0);
 	inherit_obj3.takeDamage(0);
-	inherit_obj.guardGate();
+	inherit_obj.highFivesGuys();
 	std::cout << std::endl;
 	return (0);
 }
