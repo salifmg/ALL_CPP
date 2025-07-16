@@ -1,10 +1,14 @@
-NAME			= FragTrap
+NAME			= Polymorphism2
 
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra
 
-SRCS			=	ClapTrap.cpp \
-					FragTrap.cpp \
+SRCS			=	Animal.cpp \
+					Dog.cpp \
+					Cat.cpp \
+					WrongAnimal.cpp \
+					WrongCat.cpp \
+					Brain.cpp \
 					main.cpp
 
 
@@ -27,7 +31,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 		@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-		@echo "\n$(GREEN)FragTrap Compiled! ✅$(RESET_COLOR)\n"
+		@echo "\n$(GREEN)Polymorphism2 Compiled! ✅$(RESET_COLOR)\n"
 
 %.o: %.cpp
 		@$(CC) $(FLAGS) -c $< -o $@
@@ -47,7 +51,7 @@ clean :
 
 fclean : clean
 		@rm -f $(NAME)
-		@echo "$(RED)FragTrap cleaned ! ✅$(RESET_COLOR)\n"
+		@echo "$(RED)Polymorphism2 cleaned ! ✅$(RESET_COLOR)\n"
 
 re:	fclean all
 

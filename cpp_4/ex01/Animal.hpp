@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 17:25:19 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/16 16:14:55 by smagassa         ###   ########.fr       */
+/*   Created: 2025/07/15 16:30:05 by smagassa          #+#    #+#             */
+/*   Updated: 2025/07/15 21:09:49 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-#include "Animal.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+#include "iostream"
+#include "string"
 
-class Dog :public Animal{
+class Animal
+{
 	public:
-		Dog(void);
-		Dog(const Dog& FixedCpy);
-		Dog& operator=(const Dog& FixedCpy);
-		~Dog(void);
+		Animal(void);
+		Animal(const Animal& FixedCpy);
+		Animal& operator=(const Animal& FixedCpy);
+		virtual ~Animal(void);
 		std::string getType(void) const;
-		void makeSound() const;
+		virtual void makeSound() const;
+
+	protected:
+		std::string type;
 };
 
 #endif

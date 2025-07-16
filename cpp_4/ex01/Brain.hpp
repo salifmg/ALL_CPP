@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 17:25:19 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/16 16:14:55 by smagassa         ###   ########.fr       */
+/*   Created: 2025/07/16 16:20:27 by smagassa          #+#    #+#             */
+/*   Updated: 2025/07/16 18:00:28 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 #include "Animal.hpp"
 
-class Dog :public Animal{
+class Brain
+{
 	public:
-		Dog(void);
-		Dog(const Dog& FixedCpy);
-		Dog& operator=(const Dog& FixedCpy);
-		~Dog(void);
-		std::string getType(void) const;
-		void makeSound() const;
+		Brain(void);
+		Brain(const Brain& FixedCpy);
+		Brain& operator=(const Brain& FixedCpy);
+		~Brain(void);
+
+	private:
+		std::string ideas[100];
 };
 
 #endif
