@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:11 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/16 18:44:07 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/17 14:51:52 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ int main()
 	}
 	for (int i = 0; i < 2; i++)
     	delete AnimalTab[i];
-	//    Cat a;
-    // {
-    //     Cat tpm = a;
-    // }
+
+	std::cout << std::endl;
+	   Cat a;
+    {
+        Cat tpm = a;
+    }
 	return 0;
 }
 
