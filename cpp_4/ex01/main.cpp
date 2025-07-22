@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:11 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/17 14:51:52 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/21 19:02:22 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ int main()
 	const Animal* i = new Cat();
 	delete j;//should not create a leak
 	delete i;
+	int nbr = 2;
 
 	std::cout << std::endl;
-	Animal* AnimalTab[2];
-	for(int i=0; i < 2; i++)
+	Animal* AnimalTab[nbr];
+	for(int i=0; i < nbr; i++)
 	{
-		if (i < 1)
+		if (i < nbr / 2)
 			AnimalTab[i] = new Dog();
 		else
 			AnimalTab[i] = new Cat();
 	}
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < nbr; i++)
     	delete AnimalTab[i];
 
 	std::cout << std::endl;

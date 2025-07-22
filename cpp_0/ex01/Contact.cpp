@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 17:11:34 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/30 16:46:08 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:45:00 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void Contact::add_contact(){
 		return ;
 }
 
-void Contact::display_contact_list(int index){
+void Contact::display_contact_list(void){
 
 	std::string FIRSTNAME_CROPPED = this->FirstName;
 	std::string LASTNAME_CROPPED = this->LastName;
@@ -102,7 +102,7 @@ void Contact::display_contact_list(int index){
 	return ;
 }
 
-int Contact::display_full_contact(int index){
+int Contact::display_full_contact(void){
 
 	if (this->FirstName.empty())
 	{

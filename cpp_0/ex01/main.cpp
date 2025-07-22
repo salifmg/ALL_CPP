@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 17:10:20 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/08 19:44:19 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:03:13 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,6 @@
 #include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-
-int	ft_strcmp(char *s1, const char *s2)
-{
-	int		size;
-	int		conv;
-	int		conv2;
-
-	size = 0;
-	while (s1[size] || s2[size])
-	{
-		if (s1[size] == s2[size])
-			size++;
-		else
-		{
-			conv = s2[size] - '0';
-			conv2 = s1[size] - '0';
-			return (conv2 - conv);
-		}
-	}
-	return (0);
-}
 
 int main(void)
 {

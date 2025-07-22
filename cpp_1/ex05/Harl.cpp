@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:52:53 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/03 17:13:54 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:56:06 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ void Harl::complain(std::string level)
 {
 	int flag_complain = 1;
 	
-	std::vector<std::string> all_levels;
-    all_levels.push_back("DEBUG");
-    all_levels.push_back("INFO");
-    all_levels.push_back("WARNING");
-    all_levels.push_back("ERROR");
-	// const char* arr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	// std::vector<std::string> all_levels;
+    // all_levels.push_back("DEBUG");
+    // all_levels.push_back("INFO");
+    // all_levels.push_back("WARNING");
+    // all_levels.push_back("ERROR");
+	const char* all_levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    std::vector<void (Harl::*)()> diff_complain;	
-    diff_complain.push_back(&Harl::debug);
-    diff_complain.push_back(&Harl::info);
-    diff_complain.push_back(&Harl::warning);
-    diff_complain.push_back(&Harl::error);
-	//void (Harl::*arr2[])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+    // std::vector<void (Harl::*)()> diff_complain;	
+    // diff_complain.push_back(&Harl::debug);
+    // diff_complain.push_back(&Harl::info);
+    // diff_complain.push_back(&Harl::warning);
+    // diff_complain.push_back(&Harl::error);
+	void (Harl::*diff_complain[])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 
 	for (int i = 0 ; i < 4; i++)
 	{

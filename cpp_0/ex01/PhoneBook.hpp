@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:39 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/09 17:31:25 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:39:04 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PHONEBOOK_HPP
 #include <iostream>
 #include <string>
+#include <cstdlib> 
 #include "Contact.hpp"
 
 class PhoneBook {
@@ -26,8 +27,8 @@ public:
 		
 	private:
 		Contact all_contacts[8];
-		int		new_ctact_pos = 0;
-		int		total_ctact = 0;
+		int		new_ctact_pos;
+		int		total_ctact;
 		
 };
 

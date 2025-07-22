@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:59:42 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/30 16:58:15 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:45:08 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ private:
 		~Contact(void);
 	
 		void	add_contact(void);
-		void	display_contact_list(int);
-		int		display_full_contact(int);
+		void	display_contact_list(void);
+		int		display_full_contact(void);
 
 };
 

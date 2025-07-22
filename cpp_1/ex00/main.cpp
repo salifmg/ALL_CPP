@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 19:16:12 by smagassa          #+#    #+#             */
-/*   Updated: 2025/06/15 21:05:59 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:26:22 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int main(void)
 {
-	Zombie *DynamicHeap;
+	Zombie *StaticStack;
 
-	DynamicHeap = newZombie("FIRST");
-	DynamicHeap->announce();
+	StaticStack = newZombie("FIRST");
+	StaticStack->announce();
 	randomChump("SECOND");
-	delete(DynamicHeap);
+	delete(StaticStack);
 	return (0);
 }
