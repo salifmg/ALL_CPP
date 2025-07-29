@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:37 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/28 19:04:13 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:14:52 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ void Bureaucrat::signForm(Form &form, Bureaucrat &selected_bur)
 	try
 	{
 		form.beSigned(selected_bur);
-		std::cout << selected_bur << " signed " << form << std::endl; //TEST
+		std::cout << selected_bur << " signed " << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << selected_bur << " couldn’t sign " << form << " because " << e.what() << '\n'; //TEST
+		std::cerr << selected_bur << " couldn’t sign " << form << " because " << e.what() << '\n';
 	}
 	
 	return;
