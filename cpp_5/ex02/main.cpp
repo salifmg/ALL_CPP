@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 16:57:15 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/29 18:27:53 by smagassa         ###   ########.fr       */
+/*   Created: 2025/07/29 15:52:21 by smagassa          #+#    #+#             */
+/*   Updated: 2025/07/29 19:37:26 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,14 @@ int main()
 	{
 		Bureaucrat first("first_bureaucrat", highest_grade);
 		Bureaucrat second("second_bureaucrat", lowest_grade);
-		std::cout << first.getName() << ", bureaucrat grade : " << first.getGrade() << '\n';
-		std::cout << second.getName() << ", bureaucrat grade : " << second.getGrade() << '\n';
 
-		first.increaseGrade();
-		std::cout << first << ", bureaucrat grade : " << first.getGrade() << '\n';
-		second.decreaseGrade();
-		std::cout << second << ", bureaucrat grade : " << second.getGrade() << '\n';
-		
-		
 		std::cout << std::endl;
-		Form first_form;
-		Form second_form("form_impossible", grade_to_sign, grade_to_execute);
-		first.signForm(first_form, first);
-		second.signForm(second_form, second);
+		PresidentialPardonForm first_presi_form;
+		PresidentialPardonForm scnd_presi_form("a form");
+		first.signForm(first_presi_form, first);
+		second.signForm(first_presi_form, second);
+
+		std::cout << std::endl;
 
 	}
 	catch(std::exception& e)
@@ -45,5 +39,3 @@ int main()
 	}
 	return (0) ;
 }
-
-		
