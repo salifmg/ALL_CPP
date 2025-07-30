@@ -6,13 +6,17 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:52:51 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/29 19:41:51 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:53:59 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 #include "AForm.hpp"
+#include <cstdlib>
+#include <ctime>
+
+class Bureaucrat;
 
 class RobotomyRequestForm : public AForm {
 
@@ -26,7 +30,8 @@ class RobotomyRequestForm : public AForm {
 		void beSigned(Bureaucrat &selected_bur);
 
 	private :
-
+		std::string target;
+		
 };
 
 #endif

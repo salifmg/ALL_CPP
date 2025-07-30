@@ -6,13 +6,14 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:52:49 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/29 19:42:06 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:06:27 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 #include "AForm.hpp"
+class Bureaucrat;
 
 class ShrubberyCreationForm : public AForm {
 
@@ -26,7 +27,7 @@ class ShrubberyCreationForm : public AForm {
 		void beSigned(Bureaucrat &selected_bur);
 		
 	private :
-
+		std::string target;
 };
 
 #endif

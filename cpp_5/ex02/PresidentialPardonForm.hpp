@@ -6,13 +6,14 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:52:55 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/29 18:15:38 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:07:05 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 #include "AForm.hpp"
+class Bureaucrat;
 
 class PresidentialPardonForm : public AForm {
 
@@ -26,6 +27,7 @@ class PresidentialPardonForm : public AForm {
 		void beSigned(Bureaucrat &selected_bur);
 
 	private :
+		std::string target;
 
 };
 
