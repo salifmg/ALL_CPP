@@ -6,15 +6,15 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:37 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/26 19:28:08 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/04 19:54:36 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("Default Name"), grade(42)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Bureaucrat default constructor called" << std::endl;
 	return;
 }
 

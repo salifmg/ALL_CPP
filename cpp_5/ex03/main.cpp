@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:52:21 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/30 19:18:43 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/04 19:48:19 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -21,29 +22,74 @@ int main()
 	int highest_grade = 1;
 	int lowest_grade = 150;
 
+	Bureaucrat first("first_bureaucrat", highest_grade);
+	Bureaucrat second("second_bureaucrat", lowest_grade);
+	Intern someRandomIntern;
+	std::cout << std::endl;
+
+
 	try
 	{
-		Bureaucrat first("first_bureaucrat", highest_grade);
-		Bureaucrat second("second_bureaucrat", lowest_grade);
+		AForm* scf;
+		scf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		first.signForm(*scf, first);
+		delete(scf);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
-		std::cout << std::endl;
-		ShrubberyCreationForm first_shrubbery_form;
-		ShrubberyCreationForm scnd_shrubbery_form;
-		first.signForm(first_shrubbery_form, first);
-		second.signForm(scnd_shrubbery_form, second);
 
+	try
+	{
 		std::cout << std::endl;
-		RobotomyRequestForm first_robot_form;
-		RobotomyRequestForm scnd_robot_form;
-		first.signForm(first_robot_form, first);
-		second.signForm(scnd_robot_form, second);
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		first.signForm(*rrf, first);
+		delete(rrf);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
+	
+		try
+	{
 		std::cout << std::endl;
-		PresidentialPardonForm first_presi_form;
-		PresidentialPardonForm scnd_presi_form("a form");
-		first.signForm(first_presi_form, first);
-		second.signForm(first_presi_form, second);
+		AForm* ppf;
+		ppf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		first.signForm(*ppf, first);
+		delete(ppf);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+
+		try
+	{
 		std::cout << std::endl;
+		AForm* test;
+		test = someRandomIntern.makeForm("predon!", "Bender");
+		first.signForm(*test, first);
+		delete(test);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+
+	try
+	{
+		std::cout << std::endl;
+		AForm* test2;
+		test2 = someRandomIntern.makeForm("robotomy request", "Bender");
+		second.signForm(*test2, second);
+		delete(test2);
 	}
 	catch(std::exception& e)
 	{
