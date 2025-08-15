@@ -3,7 +3,7 @@ NAME			= Serialization
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra -Wconversion
 
-SRCS			=			\
+SRCS			=	Serialization.cpp\
 					main.cpp
 
 
