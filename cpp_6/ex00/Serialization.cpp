@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:08:52 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/15 19:15:50 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/15 19:29:56 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,26 @@ void str_to_char(std::string to_convert, int i2, char c)
 	{
 		c = static_cast<char>(i2);
 		if (c >= 32 && c <= 127)
-			std::cout << "STRING TO CHAR: " << c << std::endl;
+			std::cout << "string: " << c << std::endl;
 		else
-			std::cout << "NON DISPLAYABLE CHAR" << std::endl;
+			std::cout << "char: Non displayable" << std::endl;
 	}
 	else if (i2 == 0)
-		std::cout << "STRING TO CHAR: " << to_convert[0] << std::endl;
+		std::cout << "string: " << to_convert[0] << std::endl;
 	else
-		std::cout << "CANNOT CONVERT NUMBER NOT IN ASCII TABLE" << std::endl;
+		std::cout << "char: impossible" << std::endl;
 	return;
 }
 
 void str_to_int(std::string to_convert, int i, bool single, char c)
 {
 	if (single == 0)
-		std::cout << "STRING TO INT: " << static_cast<int>(c) << std::endl; //atoi(to_convert.c_str())
+		std::cout << "int: " << static_cast<int>(c) << std::endl; //atoi(to_convert.c_str())
 	else
 	{
 		std::istringstream iss_int(to_convert);
 		(iss_int >> i);
-		std::cout << "STRING TO INT: " << i << std::endl;
+		std::cout << "int: " << i << std::endl;
 	}
 	return;
 }
@@ -86,12 +86,12 @@ void str_to_int(std::string to_convert, int i, bool single, char c)
 void str_to_float(std::string to_convert, float f, bool single, char c)
 {
 	if (single == 0)
-		std::cout << std::fixed << std::setprecision(1) << "STRING TO FLOAT: " << static_cast<float>(c) << "f" << std::endl; //strtof(str.c_str(), nullptr)
+		std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(c) << "f" << std::endl; //strtof(str.c_str(), nullptr)
 	else
 	{
 		std::istringstream iss_float(to_convert);
 		(iss_float >> f);
-		std::cout << std::fixed << std::setprecision(1) << "STRING TO FLOAT: " << f << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f" << std::endl;
 	}
 	return;
 }
@@ -99,12 +99,12 @@ void str_to_float(std::string to_convert, float f, bool single, char c)
 void str_to_double(std::string to_convert, double d, bool single, char c)
 {
 	if (single == 0)
-		std::cout << std::fixed << std::setprecision(1) << "STRING TO DOUBLE: " << static_cast<double>(c) << std::endl; //atof(str.c_str())
+		std::cout << std::fixed << std::setprecision(1) << "double: " << static_cast<double>(c) << std::endl; //atof(str.c_str())
 	else
 	{
-	std::istringstream iss_double(to_convert);
+		std::istringstream iss_double(to_convert);
 		(iss_double >> d);
-		std::cout << std::fixed << std::setprecision(1) << "STRING TO DOUBLE: " << d << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << "double: " << d << std::endl;
 	}
 	return;
 }
@@ -130,13 +130,12 @@ void ScalarConverter::convert(std::string &to_convert)
 		return;
 	}
 
-	
 	if ((isprint(to_convert[0]) == 0) || (to_convert.length() != 1 && !isdigit(to_convert[0]))) //if error
 	{
-    	std::cout << "CANNOT CONVERT STRING LONGER OR SHORTER THAN 1" << std::endl;
-		std::cout << "CANNOT CONVERT THE VALUE TO AN INT" << std::endl;
-		std::cout << "CANNOT CONVERT THE VALUE TO A FLOAT" << std::endl;
-		std::cout << "CANNOT CONVERT THE VALUE TO A DOUBLE" << std::endl;
+    	std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
 	}
 	else
 	{
