@@ -1,9 +1,10 @@
-NAME			= Convert_Scalar
+NAME			= Serialization
 
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra -Wconversion
 
-SRCS			=	ScalarConverter.cpp\
+SRCS			=	Serializer.cpp\
+					Data.cpp\
 					main.cpp
 
 
@@ -26,7 +27,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 		@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-		@echo "\n$(GREEN)Convert_Scalar Compiled! ✅$(RESET_COLOR)\n"
+		@echo "\n$(GREEN)Serialization Compiled! ✅$(RESET_COLOR)\n"
 
 %.o: %.cpp
 		@$(CC) $(FLAGS) -c $< -o $@
@@ -46,7 +47,7 @@ clean :
 
 fclean : clean
 		@rm -f $(NAME)
-		@echo "$(RED)Convert_Scalar cleaned ! ✅$(RESET_COLOR)\n"
+		@echo "$(RED)Serialization cleaned ! ✅$(RESET_COLOR)\n"
 
 re:	fclean all
 

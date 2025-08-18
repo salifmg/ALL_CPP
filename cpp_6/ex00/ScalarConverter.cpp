@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.cpp                                  :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:08:52 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/15 19:29:56 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/18 20:03:08 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serialization.hpp"
+#include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter()
 {
+	std::cout << "ScalarConverter default constructor called" << std::endl;
 	return;
 }
 
 ScalarConverter::~ScalarConverter()
 {
+	std::cout << "ScalarConverter destructor called" << std::endl;
 	return;
 }
 
