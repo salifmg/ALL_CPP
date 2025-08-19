@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 16:42:25 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/18 20:08:52 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/19 19:27:52 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Data
 		Data(const Data& FixedCpy);
 		Data& operator=(const Data& FixedCpy);
 		~Data();
+		Data(std::string name);
+		std::string getName(void);
 
 	private:
 		std::string name;

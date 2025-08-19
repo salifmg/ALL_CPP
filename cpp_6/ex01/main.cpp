@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:11 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/18 20:11:00 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/19 19:28:31 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 int main()
 {
-	Data* ptr; //test si ca apl bien le constucteur par defaut
-	//print l'adrs
+	Data data("Random");
+	Data* ptr = &data;
 
 	uintptr_t raw = Serializer::serialize(ptr);
-	//print l'adrs
 	Data* ptr2 = Serializer::deserialize(raw);
-	//print l'adrs
 
+	std::cout << "ptr:   " << ptr << std::endl;
+	std::cout << "ptr name: " << ptr->getName() << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "raw:   " << raw << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "ptr2:  " << ptr2 << std::endl;
+	std::cout << "ptr name: " << ptr2->getName() << std::endl;
 	return (0);
 }

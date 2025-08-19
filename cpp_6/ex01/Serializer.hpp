@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:08:49 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/18 20:01:30 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/19 17:21:41 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SERIALIZER_HPP
 #include <iostream>
 #include <string>
+#include <stdint.h>
 #include "Data.hpp"
 
 class Data;
