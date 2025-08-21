@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:08:52 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/18 20:03:30 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/21 20:11:22 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ Serializer& Serializer::operator=(const Serializer& FixedCpy)
 uintptr_t Serializer::serialize(Data* ptr)
 {
 	uintptr_t greg;
-	return(greg = (uintptr_t) ptr);
+	return(greg = reinterpret_cast<uintptr_t>(ptr));
 }
 
 Data* Serializer::deserialize(uintptr_t raw)
 {
 	Data *greg;
-	return(greg = (Data *) raw);
+	return(greg = reinterpret_cast<Data *>(raw));
 }
