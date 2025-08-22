@@ -3,10 +3,7 @@ NAME			= IdentifyType
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra -Wconversion
 
-SRCS			=	A.cpp\
-					B.cpp\
-					C.cpp\
-					Base.cpp\
+SRCS			=	Base.cpp\
 					main.cpp
 
 

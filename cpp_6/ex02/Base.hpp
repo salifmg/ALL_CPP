@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 18:11:52 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/21 19:16:27 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/22 18:55:46 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-#include <type_traits>
-
-class A : public Base{};
-class B : public Base{};
-class C : public Base{};
 
 class Base
 {
@@ -31,50 +26,18 @@ class Base
 	
 };
 
-Base * generate(void) {
-	Base *tmp = NULL;
-	
-	if (rand() % 3 == 0)
-	{
-		A *A_instance;
-		return (tmp = (Base *) A_instance);
-	}
-	else if (rand() % 3 == 1)
-	{
-		B *B_instance;
-		return (tmp = (Base *) B_instance);
-	}
-	else
-	{
-		C *C_instance;
-		return (tmp = (Base *) C_instance);
-	}
-}
+class A : public Base{};
+class B : public Base{};
+class C : public Base{};
 
-void identify(Base* p) {
-	if (std::is_same<p, A>::value == true)
-	{
-		
-	std::cout << std::endl;
+Base * generate(void);
 
-	}
-	else if (std::is_same<p, B>::value == true)
-	{
+int Point_to_A(Base* p);
+int Point_to_B(Base* p);
+int Point_to_C(Base* p);
 
-	std::cout << std::endl;
+void identify(Base* p);
 
-	}
-	else if (std::is_same<p, C>::value == true)
-	{
-
-	std::cout << std::endl;
-
-	}
-}
-
-void identify(Base& p) {
-	std::cout << std::endl;
-
-}
+void identify(Base& p);
 
 #endif
