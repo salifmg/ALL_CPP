@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:28:29 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/27 18:10:54 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:16:07 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,14 @@ T& Array<T>::operator[](size_t i) {
 }
 
 template <typename T>
-size_t Array<T>::size(){
+const T& Array<T>::operator[](size_t i) const{
+    if (i >= nbr_elements)
+        throw std::out_of_range("Index out of bounds");
+    return arr[i];
+}
+
+template <typename T>
+size_t Array<T>::size() const{
     return nbr_elements;
 }
 
@@ -59,7 +66,7 @@ Array<T>::~Array() {
 template <typename T>
 std::ostream &operator<<(std::ostream &o, const Array<T> &ex)
 {
-	for (size_t i = 0; i < ex.size(); i++)
+	for (size_t i = 0; i < ex.size(); ++i)
 	{
    		o << ex[i] << " ";
 	}

@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:26:22 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/26 20:18:28 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:15:34 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Array
 		Array(const Array& FixedCpy);
 		Array& operator=(const Array& FixedCpy);
 		T& operator[](size_t i);
-		size_t size();
+		const T& operator[](size_t i) const;
+		size_t size() const;
 		~Array();
 		
 	private:
