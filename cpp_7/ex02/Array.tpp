@@ -6,13 +6,14 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:28:29 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/26 20:22:50 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/08/27 18:10:54 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <cstdlib>
 
 template <typename T>
 Array<T>::Array() : arr(new T[0]), nbr_elements(0) {}
