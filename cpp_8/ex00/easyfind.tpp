@@ -6,25 +6,21 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 17:53:26 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/03 20:15:44 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/04 19:48:31 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <algorithm>
-//ajoute les containers?
 
 template <typename T>
 int easyfind(T& contain, int to_find)
 {
-	if (!to_find || !contain)
-		return(std::err << "No occurence or empty container" << std::endl, 1);
-	
-	T::iterator it; //ou juste std::vector<int> //test si bien un container ints
+	typename T::iterator it;
 	it = std::find(contain.begin(), contain.end(), to_find);
-	
+
 	if (it != contain.end())
-		return(std::cout << "The first occurrence: " << to_find << "location is: " << (it-contain.begin()) << std::endl, 0); // si emplacement marche pas retire ou fait avec search
+		return(std::cout << "First occurrence of " << to_find << " | Location: " << std::distance(contain.begin(), it) << std::endl, 0);
 	else
-		return(std::err << "No occurence found with the container" << std::endl, 1);
+		return(std::cerr << "No occurence of " << to_find << " found within the container" << std::endl, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 17:53:23 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/03 20:15:34 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/04 17:37:07 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@
 template <typename T>
 int easyfind(T&, int);
 
-#include <easyfind.tpp>
+#include "easyfind.tpp"
 
 #endif
