@@ -1,4 +1,4 @@
-NAME			= easyfind
+NAME			= Span
 
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra
@@ -25,7 +25,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 		@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-		@echo "\n$(GREEN)easyfind Compiled! ✅$(RESET_COLOR)\n"
+		@echo "\n$(GREEN)Span Compiled! ✅$(RESET_COLOR)\n"
 
 %.o: %.cpp
 		@$(CC) $(FLAGS) -c $< -o $@
@@ -45,7 +45,7 @@ clean :
 
 fclean : clean
 		@rm -f $(NAME)
-		@echo "$(RED)easyfind cleaned ! ✅$(RESET_COLOR)\n"
+		@echo "$(RED)Span cleaned ! ✅$(RESET_COLOR)\n"
 
 re:	fclean all
 
