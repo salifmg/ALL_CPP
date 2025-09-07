@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:41:33 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/05 21:12:07 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/07 21:27:20 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <utility>
 #include <vector>
+#include <list>
 #include <cstdlib>
 #include <ctime>
 
@@ -32,6 +33,9 @@ class Span
 		void addNumber(int nbr);
 		int shortestSpan();
 		int longestSpan();
+
+		template <typename T>
+		void addNumberRange(T begin, T end); 
 
 		class NotEnoughNumbers : public std::exception
 		{

@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:41:43 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/05 21:14:09 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/07 21:56:31 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,21 @@ int main()
 		std::cerr << e.what() << '\n' << std::endl;
 	}
 
+	try
+	{
+		int myints[] = {54, 5996, 8, 5, 455564815};
+		std::list<int>valid_range(5);
+		std::copy (myints, myints+5, valid_range.begin());
+		
+		Span other_sp = Span(5000);
+		other_sp.addNumberRange(valid_range.begin(), valid_range.end());
+		std::cout << "\nRANGE OF NUMBERS\n" << other_sp.shortestSpan() << std::endl;
+		std::cout << other_sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n' << std::endl;
+	}
 
 	try
 	{
