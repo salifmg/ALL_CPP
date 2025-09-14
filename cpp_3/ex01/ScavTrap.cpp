@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 19:32:39 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/11 19:54:31 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/14 21:42:23 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ ScavTrap::ScavTrap() :ClapTrap() {
 
 ScavTrap::ScavTrap(std::string Name) :ClapTrap(Name){
 
-	this->Name = Name;
 	this->Hit_points = 100;
 	this->Energy_points = 50;
 	this->Attack_damage = 20;
