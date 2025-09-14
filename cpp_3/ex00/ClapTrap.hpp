@@ -18,6 +18,7 @@
 class ClapTrap {
 
 public:
+		ClapTrap();
 		ClapTrap(std::string Name);
 		ClapTrap(const ClapTrap& FixedCpy);
 		ClapTrap& operator=(const ClapTrap& FixedCpy);

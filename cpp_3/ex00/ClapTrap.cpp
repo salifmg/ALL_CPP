@@ -6,15 +6,21 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 20:22:07 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/13 20:20:18 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/14 20:55:46 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() :Name(""), Hit_points(10), Energy_points(10), Attack_damage(0){
+
+	std::cout << "Default ClapTrap constructor called" << std::endl;
+	return;
+}
+
 ClapTrap::ClapTrap(std::string Name) :Name(Name), Hit_points(10), Energy_points(10), Attack_damage(0){
 
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap constructor called" << std::endl;
 	return;
 }
 
