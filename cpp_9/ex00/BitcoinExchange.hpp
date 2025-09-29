@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:26 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/26 19:54:52 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:24:56 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <float.h>
 #include <list>
 
+struct Date { int year, month, day; };
+
 class BitcoinExchange
 {
 	public:
@@ -31,7 +33,7 @@ class BitcoinExchange
 			void Stock_database();
 			void Stock_input();
 			void Exchange_rate();
-			int	Check_validity(std::string, std::string, int* , float);
+			int	Check_validity(std::string, std::string, Date, float);
 
 		class DosentOpenFile : public std::exception
 		{
@@ -65,7 +67,7 @@ class BitcoinExchange
 		{
 			public :
 				
-					ParsingFailure(std::string str, std::ifstream *extract_input) :message(str){extract_input->close();};
+					ParsingFailure(std::string str, std::ifstream *extract_input, std::ifstream *extract_database) :message(str){extract_input->close(), extract_database->close();};
 					virtual ~ParsingFailure() throw() {}
 					virtual const char* what() const throw()
 					{
@@ -82,11 +84,10 @@ class BitcoinExchange
 			std::string input_line, databases_line;
 			std::ifstream *extract_input, *extract_database;
 
-			int tmp_date[2];
 			std::list<std::pair <std::string, std::string> > input_datas;
-			std::list<std::pair <int*, float> > base_datas; //PAS OUBLIER DE delete []base_datas;
+			std::list<std::pair <Date, float> > base_datas; //PAS OUBLIER DE delete []base_datas;
 			std::list<std::pair <std::string, std::string> >::iterator it;
-			std::list<std::pair <int*, float> >::iterator it2;
+			std::list<std::pair <Date, float> >::iterator it2;
 };
 
 

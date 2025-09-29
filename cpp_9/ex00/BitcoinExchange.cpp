@@ -6,25 +6,21 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:24 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/26 19:56:21 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:52:02 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() {}
+BitcoinExchange::BitcoinExchange() :extract_input(NULL), extract_database(NULL){}
 
 BitcoinExchange::~BitcoinExchange() {
 
 	if (extract_input)
 	{
-		delete extract_input;
-		extract_input = NULL;
+		delete extract_input, extract_input = NULL;
 		if (extract_database)
-		{
-			delete extract_database;
-			extract_database = NULL;
-		}
+			delete extract_database, extract_database = NULL;
 	}
 }
 
@@ -48,9 +44,9 @@ void BitcoinExchange::Validfirst_line() {
 	std::getline(*extract_database, databases_line);
 
 	if (input_line.compare("date | value"))
-		throw BadLineFormat("input", "date | value");
+		extract_input->close(), throw BadLineFormat("input", "date | value");
 	else if (databases_line.compare("date,exchange_rate"))
-		throw BadLineFormat("database", "date,exchange_rate");
+		extract_input->close(), extract_database->close(), throw BadLineFormat("database", "date,exchange_rate");
 }
 
 int check_date_validity(int year, int month, int day)
@@ -70,21 +66,20 @@ void BitcoinExchange::Stock_database() {
 
 		for (size_t i = 0; i != databases_line.size(); ++i)
 			if (databases_line[i] == ' ')
-				throw ParsingFailure("Error: data.csv shouldn't have any space", extract_input);
+				throw ParsingFailure("Error: data.csv shouldn't have any space", extract_input, extract_database);
 
 		std::stringstream ss(databases_line);
 		ss >> year >> dash1 >> month >> dash2 >> day >> comma >> value;
 		if (ss.fail() || dash1 != '-' || dash2 != '-' || comma != ',' || ss >> extra)
-			throw ParsingFailure("Error: data.csv has at least one incorrect date", extract_input);
+			throw ParsingFailure("Error: data.csv has at least one incorrect date, or value superior than float max", extract_input, extract_database);
 
 		if (check_date_validity(year, month, day) == 1)
-			throw ParsingFailure("Error: data.csv has at least one date not valid", extract_input);
+			throw ParsingFailure("Error: data.csv has at least one date not valid", extract_input, extract_database);
 		
-		tmp_date[0] = year, tmp_date[1] = month, tmp_date[2] = day;
-		if (value > FLT_MAX)
-			throw ParsingFailure("Error: data.csv has at least one value higher than float max", extract_input);
-		else if (value < 0)
-			throw ParsingFailure("Error: data.csv has at least one negative value", extract_input);
+		Date tmp_date;
+		tmp_date.year = year, tmp_date.month = month, tmp_date.day = day;
+		if (value < 0)
+			throw ParsingFailure("Error: data.csv has at least one negative value", extract_input, extract_database);
 		
 		base_datas.push_back(std::make_pair(tmp_date, value));
 	}
@@ -151,27 +146,27 @@ int Is_number(char str)
 	return 1;
 }
 
-int BitcoinExchange::Check_validity(std::string date_input, std::string value_input, int *date_database, float value_database){
+int BitcoinExchange::Check_validity(std::string date_input, std::string value_input, Date date_database, float value_database){
 
 	int year, month, day;
 	char dash1, dash2, extra;
 	std::stringstream ss(date_input);
 
-	for (size_t i = 0; i != date_input.size(); ++i) //Only one space, is the last char
+	for (size_t i = 0; i != date_input.size(); ++i) //Only one space, last char
 		if (databases_line[i] == ' ' && i != date_input.size() - 1)
 			return (Print_badinput(date_input, value_input), 1);
 
-	ss >> year >> dash1 >> month >> dash2 >> day >> extra;
+	ss >> year >> dash1 >> month >> dash2 >> day;
 	if (ss.fail() || dash1 != '-' || dash2 != '-' || ss >> extra)
 		return (Print_badinput(date_input, value_input), 1);
 
 	if (check_date_validity(year, month, day) == 1)
 		return (Print_badinput(date_input, value_input), 1);
 
+
 	float converted_value;
 	char extra2;
 	std::stringstream ss2(value_input);
-	
 	//value exist, first char is a space, last char is a number
 	if ((value_input.empty() || value_input[0] != ' ' || Is_number(value_input.size() - 1))) 
 			return (Print_badinput(date_input, value_input), 1);
