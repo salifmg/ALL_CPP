@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:26 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/29 19:24:56 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:31:15 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <float.h>
 #include <list>
 
-struct Date { int year, month, day; };
+struct Date_n_val { int year, month, day; float value_input; };
 
 class BitcoinExchange
 {
@@ -33,7 +33,9 @@ class BitcoinExchange
 			void Stock_database();
 			void Stock_input();
 			void Exchange_rate();
-			int	Check_validity(std::string, std::string, Date, float);
+			int	Check_input_err(std::string, std::string, Date_n_val&);
+			int	Check_validity(Date_n_val, std::string, Date_n_val, float);
+			void Print_curr_past_value(Date_n_val, std::string , float);
 
 		class DosentOpenFile : public std::exception
 		{
@@ -85,9 +87,9 @@ class BitcoinExchange
 			std::ifstream *extract_input, *extract_database;
 
 			std::list<std::pair <std::string, std::string> > input_datas;
-			std::list<std::pair <Date, float> > base_datas; //PAS OUBLIER DE delete []base_datas;
+			std::list<std::pair <Date_n_val, float> > base_datas;
 			std::list<std::pair <std::string, std::string> >::iterator it;
-			std::list<std::pair <Date, float> >::iterator it2;
+			std::list<std::pair <Date_n_val, float> >::iterator it2;
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:24 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/29 19:52:02 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/01 16:58:10 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ void BitcoinExchange::Stock_database() {
 		std::stringstream ss(databases_line);
 		ss >> year >> dash1 >> month >> dash2 >> day >> comma >> value;
 		if (ss.fail() || dash1 != '-' || dash2 != '-' || comma != ',' || ss >> extra)
-			throw ParsingFailure("Error: data.csv has at least one incorrect date, or value superior than float max", extract_input, extract_database);
+			throw ParsingFailure("Error: data.csv has at least one incorrect Date, or value superior than float max", extract_input, extract_database);
 
 		if (check_date_validity(year, month, day) == 1)
-			throw ParsingFailure("Error: data.csv has at least one date not valid", extract_input, extract_database);
+			throw ParsingFailure("Error: data.csv has at least one Date not valid", extract_input, extract_database);
 		
-		Date tmp_date;
+		Date_n_val tmp_date;
 		tmp_date.year = year, tmp_date.month = month, tmp_date.day = day;
 		if (value < 0)
 			throw ParsingFailure("Error: data.csv has at least one negative value", extract_input, extract_database);
@@ -123,8 +123,22 @@ void BitcoinExchange::Exchange_rate(){
 		
 		for (it2 = base_datas.begin(); it2 != base_datas.end(); ++it2) { //loop for database
 			
-			if (Check_validity(it->first, it->second, it2->first, it2->second) == 1)
+			Date_n_val stock_input_vals;
+			std::list<std::pair <Date_n_val, float> >::iterator it2_next = it2;
+
+			if (Check_input_err(it->first, it->second, stock_input_vals) == 1) //error
 				break;
+
+			int return_value = Check_validity(stock_input_vals, it->first, it2->first, it2->second);
+			if (return_value == 0) //value converted
+				break;
+			else if (return_value == 2 || ++it2_next == base_datas.end())//date passed, convert with previous or current value if its the last
+			{
+				if (it2 != base_datas.begin())
+					--it2;
+				Print_curr_past_value(stock_input_vals, it->first, it2->second);
+				break;
+			}
 		}
 	}
 }
@@ -133,7 +147,7 @@ void Print_badinput(std::string date_input, std::string value_input)
 {
 	std::cout << "Error: bad input => " << date_input;
 	if (!value_input.empty())
-		std::cout << " | " << value_input << '\n';
+		std::cout << "|" << value_input << '\n';
 	else 
 		std::cout << value_input << '\n';
 
@@ -146,7 +160,7 @@ int Is_number(char str)
 	return 1;
 }
 
-int BitcoinExchange::Check_validity(std::string date_input, std::string value_input, Date date_database, float value_database){
+int	BitcoinExchange::Check_input_err(std::string date_input, std::string value_input, Date_n_val& stock_input_vals){
 
 	int year, month, day;
 	char dash1, dash2, extra;
@@ -162,32 +176,43 @@ int BitcoinExchange::Check_validity(std::string date_input, std::string value_in
 
 	if (check_date_validity(year, month, day) == 1)
 		return (Print_badinput(date_input, value_input), 1);
-
+	stock_input_vals.year = year, stock_input_vals.month = month, stock_input_vals.day = day;
 
 	float converted_value;
-	char extra2;
 	std::stringstream ss2(value_input);
 	//value exist, first char is a space, last char is a number
-	if ((value_input.empty() || value_input[0] != ' ' || Is_number(value_input.size() - 1))) 
+	if ((value_input.empty() || value_input[0] != ' ' || !Is_number(value_input[value_input.size() - 1]))) 
 			return (Print_badinput(date_input, value_input), 1);
 
 	ss2 >> converted_value; //convert to float
-	if (ss2.fail() || ss2 >> extra2)
-		return (Print_badinput(date_input, value_input), 1);
-	
-	if (converted_value > 1000)
+	if (converted_value > 1000 && !(ss2 >> extra))
 		return (std::cout << "Error: too large number." << '\n', 1);
+	else if (ss2.fail() || extra > 0)
+		return (Print_badinput(date_input, value_input), 1);	
 	else if (converted_value < 0)
 		return (std::cout << "Error: not a positive number." << '\n', 1);
-		
 
-//les deux valide compare date , valeurs
+	stock_input_vals.value_input = converted_value;
+	return (0);
+}
 
-//SI TROUVE RET 1 ET CA SORT DANS LA PREMIERE BOUCLE FOR
-//SI TROUVE PAS RET 0 TJR MEME BOUCLE FOR
+int BitcoinExchange::Check_validity(Date_n_val input_vals, std::string date_input, Date_n_val date_database, float value_database){
 
-//si pas bon print (POUR LES NOMBRES FLOAT) selectionne nombre de decimale max ???
-	(void)date_database;
-	(void)value_database;
-	return 0;
+	if (input_vals.year == date_database.year && input_vals.month == date_database.month && input_vals.day == date_database.day)
+	{
+		std::cout << date_input << "=> " << input_vals.value_input << " = " << value_database * input_vals.value_input << std::endl;
+		return 0;
+	}
+	else if (input_vals.year < date_database.year || (input_vals.year == date_database.year && input_vals.month < date_database.month) ||
+			(input_vals.year == date_database.year && input_vals.month == date_database.month && input_vals.day < date_database.day))
+	{
+		return 2;
+	}
+	return 1;
+}
+
+void BitcoinExchange::Print_curr_past_value(Date_n_val input_vals, std::string date_input, float value_database) {
+
+	std::cout << date_input << "=> " << input_vals.value_input << " = " << value_database * input_vals.value_input << std::endl;
+	return;
 }
