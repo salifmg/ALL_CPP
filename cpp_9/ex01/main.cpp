@@ -6,14 +6,33 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:26:17 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/19 14:52:25 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/03 13:30:54 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-int main(void)
+int main(int ac, char **av)
 {
+	RPN instance;
+	std::string str;
 
-	return(0);
+	try
+	{
+		if (ac == 1 || ac > 2)
+			throw("Error");
+		str = av[1];
+		
+		if (instance.Check_valitidy(str) == 1)
+			throw("Error");
+		instance.Calculate();
+		return(0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }
+
+//remplace return 1 pas throw plsu clean
