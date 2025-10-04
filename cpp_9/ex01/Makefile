@@ -3,7 +3,7 @@ NAME			= RPN
 CC				= c++
 FLAGS			= -std=c++98 -Wall -Werror -Wextra
 
-SRCS			= 	RPN.cpp /
+SRCS			= 	RPN.cpp \
 					main.cpp
 
 

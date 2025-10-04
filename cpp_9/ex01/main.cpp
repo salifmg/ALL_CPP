@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:26:17 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/03 13:30:54 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/04 17:39:44 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char **av)
 {
-	RPN instance;
+	RPN<void> instance;
 	std::string str;
 
 	try
@@ -23,8 +23,7 @@ int main(int ac, char **av)
 			throw("Error");
 		str = av[1];
 		
-		if (instance.Check_valitidy(str) == 1)
-			throw("Error");
+		instance.Check_valitidy(str);
 		instance.Calculate();
 		return(0);
 	}
