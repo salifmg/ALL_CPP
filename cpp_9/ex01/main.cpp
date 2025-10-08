@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:26:17 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/04 17:39:44 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:14:20 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 int main(int ac, char **av)
 {
-	RPN<void> instance;
+	RPN instance;
 	std::string str;
 
 	try
 	{
 		if (ac == 1 || ac > 2)
-			throw("Error");
+			throw std::runtime_error("Error");
 		str = av[1];
 		
 		instance.Check_valitidy(str);
-		instance.Calculate();
-		return(0);
+		instance.Take_while_numbers(str);// into container while not an operator
 	}
 	catch(const std::exception& e)
 	{
@@ -33,5 +32,3 @@ int main(int ac, char **av)
 	}
 	
 }
-
-//remplace return 1 pas throw plsu clean
