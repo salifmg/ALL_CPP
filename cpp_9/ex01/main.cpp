@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:26:17 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/08 18:14:20 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/09 13:18:54 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int ac, char **av)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		return (std::cerr << e.what() << '\n', 1);
 	}
-	
+	return 0;
 }
