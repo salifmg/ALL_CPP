@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 12:40:41 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/13 19:09:21 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/14 19:34:46 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class PmergeMe
 		~PmergeMe();
 		void	Into_container(char **, bool);
 		void Merge_insertion_sort(bool);
-		void Ford_johnson_vector(std::vector<int>);
-		void Ford_johnson_deque(std::deque<int>);
+		void Ford_johnson_vector(std::vector<int>&);
+		void Ford_johnson_deque(std::deque<int>&);
 
 	private:
 		std::vector<int>to_sort;
