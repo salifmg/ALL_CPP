@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 12:40:41 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/17 21:09:17 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/18 21:53:58 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,51 +64,43 @@ void has_duplicate(const T & v)
 }
 
 
-static double	getTimeUs()
-{
-	clock_t	time = std::clock();
+// template <typename T, typename T2>
+// void print_pairs(T it_strt, T2 it_end, int impair){ //TESTING
 
-	return (static_cast<double>(time) * 1e6 / CLOCKS_PER_SEC);//convert to microseconds
-}
-
-
-template <typename T, typename T2>
-void print_pairs(T it_strt, T2 it_end, int impair){ //TESTING
-
-	std::cout << "Pairs : ";
-	while(it_strt != it_end)
-	{
-		std::cout << "[ "<< it_strt->first << " " << it_strt->second << " ] ";
-		it_strt++;
-	}
-	if (impair != -1)
-		std::cout << '\n' << "Impair : "<< impair << '\n' << std::endl;
-	else
-		std::cout << '\n';
-}
+// 	std::cout << "Pairs : ";
+// 	while(it_strt != it_end)
+// 	{
+// 		std::cout << "[ "<< it_strt->first << " " << it_strt->second << " ] ";
+// 		it_strt++;
+// 	}
+// 	if (impair != -1)
+// 		std::cout << '\n' << "Impair : "<< impair << '\n' << std::endl;
+// 	else
+// 		std::cout << '\n';
+// }
 
 
-template <typename T>
-void print_main_pend(const T &main, const T &pend){ //TESTING
+// template <typename T>
+// void print_main_pend(const T &main, const T &pend){ //TESTING
 
-	std::cout << "main : ";
-	for(size_t i=0; i < main.size(); ++i)
-	{
-		std::cout << main[i] << ' ';
-	}
-	std::cout << '\n' << "pend : ";
-	for(size_t i=0; i < pend.size(); ++i)
-	{
-		std::cout << pend[i] << ' ';
-	}
-	std::cout << '\n' << std::endl;
-}
+// 	std::cout << "main : ";
+// 	for(size_t i=0; i < main.size(); ++i)
+// 	{
+// 		std::cout << main[i] << ' ';
+// 	}
+// 	std::cout << '\n' << "pend : ";
+// 	for(size_t i=0; i < pend.size(); ++i)
+// 	{
+// 		std::cout << pend[i] << ' ';
+// 	}
+// 	std::cout << '\n' << std::endl;
+// }
 
 
 template <typename T, typename T2, typename T3>
 void	stock_high_low(T it_strt, T2 it_end, int impair, T3 &main, T3 &pend){
 
-	print_pairs(it_strt, it_end, impair); //test
+	// print_pairs(it_strt, it_end, impair); //test
 
 	while(it_strt != it_end)
 	{
@@ -119,7 +111,7 @@ void	stock_high_low(T it_strt, T2 it_end, int impair, T3 &main, T3 &pend){
 	if (impair != -1)
 		main.push_back(impair);
 		
-	print_main_pend(main, pend); //test
+	// print_main_pend(main, pend); //test
 }
 
 
