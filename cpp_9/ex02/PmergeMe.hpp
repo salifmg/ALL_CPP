@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 12:40:41 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/18 21:53:58 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/20 18:07:30 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,52 +49,47 @@ class PmergeMe
 		double deque_end;
 };
 
-/*A FAIRE
-
-affiche les erreurs a fixer et la raison prq err
-utilise la classe de exo juste avant pr msg personalise
-*/
 
 template <typename T>
 void has_duplicate(const T & v)
 {
     std::set<int> s(v.begin(), v.end());
     if (v.size() != s.size())
-		throw std::runtime_error("Error4");
+		throw std::runtime_error("Error, has a duplicate value");
 }
 
 
-// template <typename T, typename T2>
-// void print_pairs(T it_strt, T2 it_end, int impair){ //TESTING
+template <typename T, typename T2>
+void print_pairs(T it_strt, T2 it_end, int impair){ //TESTING
 
-// 	std::cout << "Pairs : ";
-// 	while(it_strt != it_end)
-// 	{
-// 		std::cout << "[ "<< it_strt->first << " " << it_strt->second << " ] ";
-// 		it_strt++;
-// 	}
-// 	if (impair != -1)
-// 		std::cout << '\n' << "Impair : "<< impair << '\n' << std::endl;
-// 	else
-// 		std::cout << '\n';
-// }
+	std::cout << "Pairs : ";
+	while(it_strt != it_end)
+	{
+		std::cout << "[ "<< it_strt->first << " " << it_strt->second << " ] ";
+		it_strt++;
+	}
+	if (impair != -1)
+		std::cout << '\n' << "Impair : "<< impair << '\n' << std::endl;
+	else
+		std::cout << '\n';
+}
 
 
-// template <typename T>
-// void print_main_pend(const T &main, const T &pend){ //TESTING
+template <typename T>
+void print_main_pend(const T &main, const T &pend){ //TESTING
 
-// 	std::cout << "main : ";
-// 	for(size_t i=0; i < main.size(); ++i)
-// 	{
-// 		std::cout << main[i] << ' ';
-// 	}
-// 	std::cout << '\n' << "pend : ";
-// 	for(size_t i=0; i < pend.size(); ++i)
-// 	{
-// 		std::cout << pend[i] << ' ';
-// 	}
-// 	std::cout << '\n' << std::endl;
-// }
+	std::cout << "main : ";
+	for(size_t i=0; i < main.size(); ++i)
+	{
+		std::cout << main[i] << ' ';
+	}
+	std::cout << '\n' << "pend : ";
+	for(size_t i=0; i < pend.size(); ++i)
+	{
+		std::cout << pend[i] << ' ';
+	}
+	std::cout << '\n' << std::endl;
+}
 
 
 template <typename T, typename T2, typename T3>
@@ -136,5 +131,6 @@ void make_into_pairs(T &all_or_main, T2 &pairs, int &impair)
 		}
 	}
 }
+
 
 #endif

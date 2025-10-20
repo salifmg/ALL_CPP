@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 12:40:40 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/18 22:29:21 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/20 18:14:20 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	PmergeMe::Into_container(char **av, bool flag_container){
 		{
 			str = av[i];
 			if (str.find_first_not_of("0123456789") != std::string::npos) //if not between 0-9 error
-				throw std::runtime_error("Error2");
+				throw std::runtime_error("Error, value isn't between 0 and 9");
 
 			taken_value = std::strtol(str.c_str(), NULL, 10); //taken value in long to test it
 			if (taken_value > INT_MAX)
-				throw std::runtime_error("Error3");
-			to_sort.push_back(std::atoi(str.c_str()));
+				throw std::runtime_error("Error, one value superior than INT_MAX");
+			to_sort.push_back(std::atoi(str.c_str()));//stock value into vector
 		}
 		has_duplicate(to_sort);
 	}
@@ -42,12 +42,12 @@ void	PmergeMe::Into_container(char **av, bool flag_container){
 		while (av[++i])
 		{
 			str = av[i];
-			if (str.find_first_not_of("0123456789") != std::string::npos) //if not between 0-9 error
-				throw std::runtime_error("Error2.1");
+			if (str.find_first_not_of("0123456789") != std::string::npos)
+				throw std::runtime_error("Error, value isn't between 0 and 9");
 
-			taken_value = std::strtol(str.c_str(), NULL, 10); //taken value in long to test it
+			taken_value = std::strtol(str.c_str(), NULL, 10);
 			if (taken_value > INT_MAX)
-				throw std::runtime_error("Error3.2");
+				throw std::runtime_error("Error, one value superior than INT_MAX");
 			to_sort2.push_back(std::atoi(str.c_str()));//stock value into deque
 		}
 		has_duplicate(to_sort2);
@@ -87,6 +87,7 @@ void PmergeMe::print_Values(std::string before_or_after, bool flag_container, bo
 	}
 }
 
+
 void PmergeMe::print_Times(bool flag_container)
 {
 	std::cout << std::fixed << std::setprecision(4);
@@ -95,6 +96,7 @@ void PmergeMe::print_Times(bool flag_container)
 	else
 		std::cout << "Time to process a range of " << size << " elements with std::deque  : " << (deque_end - deque_start) << " us" << std::endl;
 }
+
 
 void PmergeMe::Merge_insertion_sort(bool flag_container) {
 	
@@ -111,10 +113,18 @@ void PmergeMe::Merge_insertion_sort(bool flag_container) {
 
 	print_Values("After:  ", flag_container, 1);
 	print_Times(flag_container);
-
 }
 
-int jacobsthal(size_t pos_of_jacob) 
+
+static double	getTimeUs()
+{
+	clock_t	time = std::clock();
+
+	return (static_cast<double>(time) * 1e6 / CLOCKS_PER_SEC);//convert to microseconds 1^6, CLOCKS_PER_SEC is nessesary to convert the clocks
+}
+
+
+int jacobsthal_nbr(size_t pos_of_jacob) 
 {
     int next, a = 0, b = 1;
 
@@ -130,13 +140,35 @@ int jacobsthal(size_t pos_of_jacob)
 }
 
 
-static double	getTimeUs()
-{
-	clock_t	time = std::clock();
+template <typename T>
+void jacobsthal(T &stock_main, T &stock_pend){
 
-	return (static_cast<double>(time) * 1e6 / CLOCKS_PER_SEC);//convert to microseconds
+	int	jn, jn1; //current and past jacobs number
+	int	n = 3; //start at 3rd jacobstal number (1), since first and second = 0, 1, and always need previous jn1
+	//Sort while integrating pend to main
+	while ((jn = jacobsthal_nbr(n)))
+	{
+		if (stock_pend.empty() || stock_pend.empty())
+			break ;
+		jn1 = jacobsthal_nbr(n - 1);
+		size_t	nb_insertion = jn - jn1; //total nmbrs to insert in main
+		int pos = jn; //start taking values to insert from current jacobstal value
+
+		if (pos >= static_cast<int>(stock_pend.size())) //if jacobstal value bigger than pend size
+			pos = stock_pend.size() - 1;//equal to its last position (s - 1)
+
+		while (nb_insertion--)
+		{
+			if (stock_pend.empty() || stock_main.empty()) //when no more values exit
+					break ;
+			typename T::iterator insertPos = std::lower_bound(stock_main.begin(), stock_main.end(), stock_pend[pos]);//lower_bound found position to insert value and stay sorted
+			stock_main.insert(insertPos, stock_pend[pos]); //adds value from in pend to the main
+			stock_pend.erase(stock_pend.begin() + pos);
+			pos--;
+		}
+		++n;
+	}
 }
-
 
 void PmergeMe::Ford_johnson_vector(std::vector<int> &all_or_main){
 
@@ -164,34 +196,7 @@ void PmergeMe::Ford_johnson_vector(std::vector<int> &all_or_main){
 	stock_high_low(pairs.begin(), pairs.end(), impair, stock_main, stock_pend);
 
 	Ford_johnson_vector(stock_main); // while size > 2, keep sorting
-	
-
-	int	jn, jn1; //current and past jacobs number
-	int	n = 3; //start at 3rd jacobstal number (1), since first and second = 0, 1, and always need previous jn1
-
-	//Sort while integrating pend to main
-	while ((jn = jacobsthal(n)))
-	{
-		if (stock_pend.empty() || stock_pend.empty())
-			break ;
-		jn1 = jacobsthal(n - 1);
-		size_t	nb_insertion = jn - jn1; //total nmbrs to insert in main
-		int pos = jn; //start taking values to insert from current jacobstal value
-
-		if (pos >= static_cast<int>(stock_pend.size())) //if jacobstal value bigger than pend size
-			pos = stock_pend.size() - 1;//equal to its last position (s - 1)
-
-		while (nb_insertion--)
-		{
-			if (stock_pend.empty() || stock_main.empty()) //when no more values exit
-					break ;
-			std::vector<int>::iterator insertPos = std::lower_bound(stock_main.begin(), stock_main.end(), stock_pend[pos]);//lower_bound found position to insert value and stay sorted
-			stock_main.insert(insertPos, stock_pend[pos]); //adds value from in pend to the main
-			stock_pend.erase(stock_pend.begin() + pos);
-			pos--;
-		}
-		++n;
-	}
+	jacobsthal(stock_main, stock_pend);
 
 	all_or_main = stock_main;
 	vector_end = getTimeUs();
@@ -224,34 +229,7 @@ void PmergeMe::Ford_johnson_deque(std::deque<int> &all_or_main){
 	stock_high_low(pairs.begin(), pairs.end(), impair, stock_main, stock_pend);
 
 	Ford_johnson_deque(stock_main);
-
-
-	int	jn, jn1; //current and past jacobs number
-	int	n = 3; //start at 3rd jacobstal number (1), since first and second = 0, 1, and always need previous jn1
-
-	//Sort while integrating pend to main
-	while ((jn = jacobsthal(n)))
-	{
-		if (stock_pend.empty() || stock_pend.empty())
-			break ;
-		jn1 = jacobsthal(n - 1);
-		size_t	nb_insertion = jn - jn1; //total nmbrs to insert in main
-		int pos = jn; //start taking values to insert from current jacobstal value
-
-		if (pos >= static_cast<int>(stock_pend.size())) //if jacobstal value bigger than pend size
-			pos = stock_pend.size() - 1;//equal to its last position (s - 1)
-
-		while (nb_insertion--)
-		{
-			if (stock_pend.empty() || stock_main.empty()) //when no more values exit
-					break ;
-			std::deque<int>::iterator insertPos = std::lower_bound(stock_main.begin(), stock_main.end(), stock_pend[pos]);//lower_bound found position to insert value and stay sorted
-			stock_main.insert(insertPos, stock_pend[pos]); //adds value from in pend to the main
-			stock_pend.erase(stock_pend.begin() + pos);
-			pos--;
-		}
-		++n;
-	}
+	jacobsthal(stock_main, stock_pend);
 
 	all_or_main = stock_main;
 	deque_end = getTimeUs();
