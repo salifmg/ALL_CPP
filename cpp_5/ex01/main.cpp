@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:57:15 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/29 18:27:53 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/21 17:00:58 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int main()
 {
-	int highest_grade = 1;
-	int lowest_grade = 150;
+	int almost_highest_grade = 2;
+	int almost_lowest_grade = 149;
 	int grade_to_sign = 1;
 	int grade_to_execute = 1;
 
 	try
 	{
-		Bureaucrat first("first_bureaucrat", highest_grade);
-		Bureaucrat second("second_bureaucrat", lowest_grade);
+		Bureaucrat first("first_bureaucrat", almost_highest_grade);
+		Bureaucrat second("second_bureaucrat", almost_lowest_grade);
 		std::cout << first.getName() << ", bureaucrat grade : " << first.getGrade() << '\n';
 		std::cout << second.getName() << ", bureaucrat grade : " << second.getGrade() << '\n';
 
@@ -36,6 +36,7 @@ int main()
 		Form first_form;
 		Form second_form("form_impossible", grade_to_sign, grade_to_execute);
 		first.signForm(first_form, first);
+		std::cout << std::endl;
 		second.signForm(second_form, second);
 
 	}

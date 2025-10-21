@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:37 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/04 19:54:19 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/21 17:33:53 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,20 @@ int Bureaucrat::getGrade()
 	return(this->grade);
 }
 
-int Bureaucrat::increaseGrade()
+void Bureaucrat::increaseGrade()
 {
-	return(--this->grade);
+	if (grade -1 < 0)
+		throw GradeTooLowException();
+	else 
+		--grade;
 }
 
-int Bureaucrat::decreaseGrade()
+void Bureaucrat::decreaseGrade()
 {
-	return(++this->grade);
+	if (grade +1 > 150)
+		throw GradeTooHighException();
+	else 
+		++grade;
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat &ex)

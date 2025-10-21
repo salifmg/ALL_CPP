@@ -6,14 +6,14 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:49 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/28 18:48:13 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:12:56 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXCEPTIONS_HPP
 #define EXCEPTIONS_HPP
-#include "iostream"
-#include "string"
+#include <iostream>
+#include <string>
 #include <stdexcept>
 #include "Form.hpp"
 
@@ -48,8 +48,8 @@ class Bureaucrat {
 		std::string getName();
 		int getGrade();
 
-		int increaseGrade();
-		int decreaseGrade();
+		void increaseGrade();
+		void decreaseGrade();
 
 		void signForm(Form &form, Bureaucrat &selected_bur);
 

@@ -6,15 +6,15 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:59:32 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/28 19:04:20 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:59:24 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "iostream"
-#include "string"
+#include <iostream>
+#include <string>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
