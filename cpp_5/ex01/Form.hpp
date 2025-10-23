@@ -6,15 +6,13 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:59:32 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/21 16:59:24 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 19:03:28 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <iostream>
-#include <string>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -30,13 +28,24 @@ class Form {
 		Form(std::string, int, int);
 		void beSigned(Bureaucrat &selected_bur);
 		std::string getName();
-		
-		class GradeTooLowException : public std::exception
+
+		class NotGoodGradeToSign : public std::exception
 		{
-			virtual const char* what() const throw()
-			{
-				return "Exception for grade lower than 150";
-			}
+			public :
+					NotGoodGradeToSign(const int grade_max)
+					{
+						std::stringstream ss;
+						ss << grade_max;
+						message = "Exception for grade lower than " + ss.str();
+					}
+					virtual ~NotGoodGradeToSign() throw() {}
+					virtual const char* what() const throw()
+					{
+						return (message.c_str());
+					}
+			
+			private:
+					std::string message;
 		};
 
 	private:

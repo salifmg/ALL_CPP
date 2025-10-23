@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:52:37 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/30 19:20:09 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:23:04 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,18 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 void PresidentialPardonForm::beSigned(Bureaucrat &selected_bur)
 {
 	if (selected_bur.getGrade() > grade_to_sign)
-		throw GradeTooLowException();
+		throw NotGoodGradeToSign(grade_to_sign);
 	else
 		sign = true;
-	if (grade_to_execute > selected_bur.getGrade())
-		std::cout << target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	return;
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	if (sign != 1)
+		throw FormNotSigned();
+	if (executor.getGrade() > grade_to_execute)
+		throw NotGoodGradeToSign(grade_to_sign);
+
+	std::cout << target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

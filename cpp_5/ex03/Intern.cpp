@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 18:28:46 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/04 18:54:30 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/23 20:03:43 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ AForm* Intern::makeForm(std::string name_form, std::string target_form)
 			}
 		} 
 	}
-	throw InvalidForm();
+	throw InvalidForm(name_form);
 }

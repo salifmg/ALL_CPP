@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:59:32 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/13 15:13:53 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:22:24 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,36 @@ class AForm {
 
 		AForm(std::string, int, int);
 		virtual void beSigned(Bureaucrat &selected_bur) = 0;
-		std::string getName();
+		std::string getName() const;
+		virtual void execute( const Bureaucrat& executor ) const = 0;
 		
-		class GradeTooLowException : public std::exception
+		class NotGoodGradeToSign : public std::exception
+		{
+			public :
+					NotGoodGradeToSign(const int grade_max)
+					{
+						std::stringstream ss;
+						ss << grade_max;
+						message = "Exception for grade lower than " + ss.str();
+					}
+					virtual ~NotGoodGradeToSign() throw() {}
+					virtual const char* what() const throw()
+					{
+						return (message.c_str());
+					}
+
+			private:
+					std::string message;
+		};
+
+		class FormNotSigned : public std::exception
 		{
 			virtual const char* what() const throw()
 			{
-				return "Exception for grade lower than 150";
+				return "Exception for trying to execute form witouth signing it";
 			}
 		};
-
+		
 	protected:
 		const std::string name;
 		bool sign;

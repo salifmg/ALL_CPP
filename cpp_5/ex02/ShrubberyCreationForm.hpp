@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:52:49 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/30 18:06:27 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 21:54:45 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ShrubberyCreationForm : public AForm {
 
 		ShrubberyCreationForm(std::string name);
 		void beSigned(Bureaucrat &selected_bur);
+		void execute(Bureaucrat const &executor) const;
 		
 	private :
 		std::string target;

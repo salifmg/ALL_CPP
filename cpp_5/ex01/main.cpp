@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:57:15 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/21 17:00:58 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 18:52:55 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int main()
 		std::cout << std::endl;
 		Form first_form;
 		Form second_form("form_impossible", grade_to_sign, grade_to_execute);
-		first.signForm(first_form, first);
+		first.signForm(first_form);
 		std::cout << std::endl;
-		second.signForm(second_form, second);
+		second.signForm(second_form);
 
 	}
 	catch(std::exception& e)

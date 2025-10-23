@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:37 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/21 17:52:35 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:08:25 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& FixedCpy) {
 	return (*this);
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return(this->name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
 	return(this->grade);
 }
@@ -73,23 +73,36 @@ void Bureaucrat::decreaseGrade()
 		++grade;
 }
 
-std::ostream &operator<<(std::ostream &o, Bureaucrat &ex)
+std::ostream &operator<<(std::ostream &o, const Bureaucrat &ex)
 {
     o << ex.getName();
     return (o);
 }
 
-void Bureaucrat::signForm(AForm &form, Bureaucrat &selected_bur)
+void Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
-		form.beSigned(selected_bur);
-		std::cout << selected_bur << " signed " << form << std::endl;
+		form.beSigned(*this);
+		std::cout << *this << " signed " << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << selected_bur << " couldn’t sign " << form << " because " << e.what() << '\n';
+		std::cerr << *this << " couldn’t sign " << form << " because " << e.what() << '\n';
 	}
 	
 	return;
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

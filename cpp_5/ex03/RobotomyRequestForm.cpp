@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:52:33 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/30 19:43:57 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:21:14 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,22 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& F
 void RobotomyRequestForm::beSigned(Bureaucrat &selected_bur)
 {
 	if (selected_bur.getGrade() > grade_to_sign)
-		throw GradeTooLowException();
+		throw NotGoodGradeToSign(grade_to_sign);
 	else
 		sign = true;
-	if (grade_to_execute > selected_bur.getGrade())
-	{
-		std::cout << "Bzzt... Bzzt... Bzzt..." << std::endl;
-		if (rand() % 2 == 0)
-			std::cout << target << " has been robotomized successfully!" << std::endl;
-		else
-			std::cout << "The robotomy has failed" << std::endl;
-	}
 	return;
+}
+
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
+{
+	if (sign != 1)
+		throw FormNotSigned();
+	if (executor.getGrade() > grade_to_execute)
+		throw NotGoodGradeToSign(grade_to_sign);
+
+	std::cout << "Bzzt... Bzzt... Bzzt..." << std::endl;
+	if (rand() % 2 == 0)
+		std::cout << target << " has been robotomized successfully!" << std::endl;
+	else
+		std::cout << "The robotomy has failed" << std::endl;
 }

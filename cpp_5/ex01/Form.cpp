@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:59:30 by smagassa          #+#    #+#             */
-/*   Updated: 2025/07/28 18:39:31 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 18:24:20 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ std::string Form::getName()
 void Form::beSigned(Bureaucrat &selected_bur)
 {
 	if (selected_bur.getGrade() > grade_to_sign)
-		throw GradeTooLowException();
+		throw NotGoodGradeToSign(grade_to_sign);
 	else
 		sign = true; 
 	return;

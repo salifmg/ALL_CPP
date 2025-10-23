@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:57:15 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/21 16:09:32 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 18:01:27 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main()
 		std::cout << '\n';
 		first.increaseGrade();
 		std::cout << first << '\n';
+		second.decreaseGrade();
 		second.decreaseGrade();
 		std::cout << second << '\n';
 	}

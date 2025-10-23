@@ -43,21 +43,21 @@ AForm& AForm::operator=(const AForm& FixedCpy) {
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &o, AForm &ex)
+std::string AForm::getName() const
+{
+	return(this->name);
+}
+
+std::ostream &operator<<(std::ostream &o, const AForm &ex)
 {
     o << ex.getName();
     return (o);
 }
 
-std::string AForm::getName()
-{
-	return(this->name);
-}
-
 void AForm::beSigned(Bureaucrat &selected_bur)
 {
 	if (selected_bur.getGrade() > grade_to_sign)
-		throw GradeTooLowException();
+		throw NotGoodGradeToSign(grade_to_sign);
 	else
 		sign = true; 
 	return;

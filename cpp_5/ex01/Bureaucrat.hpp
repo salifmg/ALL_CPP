@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:49 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/21 16:12:56 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 19:03:21 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <sstream>
 #include "Form.hpp"
 
 class Form;
@@ -51,7 +52,7 @@ class Bureaucrat {
 		void increaseGrade();
 		void decreaseGrade();
 
-		void signForm(Form &form, Bureaucrat &selected_bur);
+		void signForm(Form &form);
 
 	private:
 		const std::string name;

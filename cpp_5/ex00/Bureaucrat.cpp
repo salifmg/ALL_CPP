@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:37 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/21 16:06:47 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 18:01:15 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int Bureaucrat::getGrade()
 
 void Bureaucrat::increaseGrade()
 {
-	if (grade -1 < 0)
-		throw GradeTooLowException();
+	if (grade -1 <= 0)
+		throw GradeTooHighException();
 	else 
 		--grade;
 }
@@ -68,7 +68,7 @@ void Bureaucrat::increaseGrade()
 void Bureaucrat::decreaseGrade()
 {
 	if (grade +1 > 150)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 	else 
 		++grade;
 }

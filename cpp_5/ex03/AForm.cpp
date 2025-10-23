@@ -49,7 +49,7 @@ std::ostream &operator<<(std::ostream &o, AForm &ex)
     return (o);
 }
 
-std::string AForm::getName()
+std::string AForm::getName() const
 {
 	return(this->name);
 }
@@ -57,7 +57,7 @@ std::string AForm::getName()
 void AForm::beSigned(Bureaucrat &selected_bur)
 {
 	if (selected_bur.getGrade() > grade_to_sign)
-		throw GradeTooLowException();
+		throw NotGoodGradeToSign(grade_to_sign);
 	else
 		sign = true; 
 	return;

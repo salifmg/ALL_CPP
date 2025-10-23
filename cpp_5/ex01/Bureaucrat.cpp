@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:58:37 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/21 16:13:00 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/22 18:52:35 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int Bureaucrat::getGrade()
 
 void Bureaucrat::increaseGrade()
 {
-	if (grade -1 < 0)
-		throw GradeTooLowException();
+	if (grade -1 <= 0)
+		throw GradeTooHighException();
 	else 
 		--grade;
 }
@@ -68,7 +68,7 @@ void Bureaucrat::increaseGrade()
 void Bureaucrat::decreaseGrade()
 {
 	if (grade +1 > 150)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 	else 
 		++grade;
 }
@@ -79,16 +79,16 @@ std::ostream &operator<<(std::ostream &o, Bureaucrat &ex)
     return (o);
 }
 
-void Bureaucrat::signForm(Form &form, Bureaucrat &selected_bur)
+void Bureaucrat::signForm(Form &form)
 {
 	try
 	{
-		form.beSigned(selected_bur);
-		std::cout << selected_bur << " signed " << form << std::endl;
+		form.beSigned(*this);
+		std::cout << *this << " signed " << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << selected_bur << " couldn’t sign " << form << " because " << e.what() << '\n';
+		std::cerr << *this << " couldn’t sign " << form << " because " << e.what() << '\n';
 	}
 	
 	return;
