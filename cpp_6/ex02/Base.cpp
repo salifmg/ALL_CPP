@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 18:11:28 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/22 18:51:28 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/23 20:52:08 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int Point_to_C(Base* p)
 
 void identify(Base* p) {
 
-	int (*select_type[])(Base*) = {&Point_to_A, &Point_to_B, &Point_to_C};
+	int (*select_type[])(Base*) = {&Point_to_A, &Point_to_B, &Point_to_C}; //array of funtions whom takes base* as a parameter
 
 	for (int i = 0 ; i < 3; i++)
 	{
-		if ((*select_type[i])(p) == 0)
+		if ((*select_type[i])(p) == 0) //trys to cast, to convert to the wanted type
 			return;
 	}
 	std::cout << "ptr type neither a, b , or c" <<std::endl;
