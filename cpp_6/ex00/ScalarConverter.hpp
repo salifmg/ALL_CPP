@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:08:49 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/24 18:03:03 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/27 18:05:25 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <cctype>
 #include <iomanip>
 #include <limits>
+#include <stdlib.h>
+#include <math.h> 
 
 class ScalarConverter
 {

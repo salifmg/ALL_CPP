@@ -1,7 +1,7 @@
 NAME			= Convert_Scalar
 
 CC				= c++
-FLAGS			= -std=c++98 -Wall -Werror -Wextra -Wconversion
+FLAGS			= -std=c++98 -Wall -Werror -Wextra
 
 SRCS			=	ScalarConverter.cpp\
 					main.cpp
