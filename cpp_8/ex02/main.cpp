@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 17:57:34 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/09 20:13:18 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/29 19:25:19 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
 	//[...]
 	mstack.push(0);
 	
-	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::const_iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 
 	++it;

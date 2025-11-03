@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 16:26:17 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/04 19:49:01 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/31 19:44:04 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 	std::vector<int> last_occ (4);
 	std::copy (myints, myints+4, last_occ.begin());
 
-	std::list<int> no_occ (5, 10);
+	std::list<int> no_occ (5, 10); //5 times 10
 
 	std::deque<int> no_occ2;
 	no_occ2.push_back(10);

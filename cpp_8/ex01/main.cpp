@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 15:41:43 by smagassa          #+#    #+#             */
-/*   Updated: 2025/09/07 21:56:31 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/31 19:38:37 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ int main()
 	try
 	{
 		int myints[] = {54, 5996, 8, 5, 455564815};
-		std::list<int>valid_range(5);
-		std::copy (myints, myints+5, valid_range.begin());
+		int n = sizeof(myints) / sizeof(myints[0]);
+		std::list<int>valid_range(n);
+		std::copy (myints, myints+n, valid_range.begin());
 		
-		Span other_sp = Span(5000);
+		Span other_sp = Span(50);
 		other_sp.addNumberRange(valid_range.begin(), valid_range.end());
 		std::cout << "\nRANGE OF NUMBERS\n" << other_sp.shortestSpan() << std::endl;
 		std::cout << other_sp.longestSpan() << std::endl;
