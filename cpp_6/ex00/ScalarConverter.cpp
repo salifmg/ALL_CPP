@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:08:52 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/27 19:44:00 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/28 18:46:21 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,4 +180,3 @@ void ScalarConverter::convert(std::string &to_convert)
 		convert_str(to_convert, i, c, f, d);
     return;
 }
-//test prntable

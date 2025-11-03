@@ -6,17 +6,17 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:08:49 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/27 18:05:25 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/28 18:46:46 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <sstream>
 #include <cctype>
-#include <iomanip>
 #include <limits>
 #include <stdlib.h>
 #include <math.h> 
