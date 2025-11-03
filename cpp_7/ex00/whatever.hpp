@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 18:21:35 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/24 19:33:35 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/10/28 18:57:51 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ template <typename T> void swap(T& a, T& b) {
 }
 
 template <typename T2> T2 max(T2 a, T2 b) {
-    return (a > b) ? a : b;
+    return (a > b) ? a : b; //(if a bigger than b), return a : else return b
 }
 
 template <typename T3> T3 min(T3 a, T3 b) {

@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 19:55:33 by smagassa          #+#    #+#             */
-/*   Updated: 2025/08/25 20:15:00 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/11/03 16:54:55 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int main( void ) {
 	float len_f = 2;
 	double len_d = 2;
 
-	int a[5] = {15, 588, 46, 42, 77};
-	int b[2] = {};
-	float c[2] = {55.8f};
-	const double d[2] = {74.0, 7.5};
-	std::string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};
+	int a[] = {15, 588, 46, 42, 77};
+	int b[] = {};
+	float c[] = {55.8f};
+	const double d[] = {74.0, 7.5};
+	std::string cars[] = {"Volvo", "BMW", "Ford", "Mazda"};
 
 	std::cout << "INT \n";
 	iter(a, len, PrintArray<int>), std::cout << std::endl;
@@ -38,6 +38,7 @@ int main( void ) {
 	
 	std::cout << "STRING \n";
 	len = 4;
-	iter(cars, len, PrintArray<std::string>);
+	iter(cars, len, PrintArray2);
+	
 	return 0;
-	}
+}
