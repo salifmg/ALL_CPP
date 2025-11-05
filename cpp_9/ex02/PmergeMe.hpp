@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 12:40:41 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/20 18:07:30 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:45:09 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 #include <iostream>
 #include <sstream>
 
-#include <string>
-#include <vector>
-#include <deque>
-#include <set>
-
 #include <cstdlib>
 #include <climits>
 #include <ctime>
+
 #include <algorithm>
 #include <iomanip>
+#include <string>
+
+#include <vector>
+#include <deque>
+#include <set>
 
 class PmergeMe
 {

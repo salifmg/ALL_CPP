@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:24 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/02 14:15:43 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/11/05 17:22:55 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,6 @@ void BitcoinExchange::Exchange_rate(){
 			Date_n_val stock_input_vals;
 			std::list<std::pair <Date_n_val, float> >::iterator it2_next = it2;
 
-		// if (!stock_input_vals.year || !stock_input_vals.month || !stock_input_vals.day)
-		// 	std::cout <<  "test err" << std::endl;
 			if (Check_input_err(it->first, it->second, stock_input_vals) == 1) //error
 				break;
 
@@ -169,8 +167,6 @@ int	BitcoinExchange::Check_input_err(std::string date_input, std::string value_i
 	char dash1, dash2, extra = 0;
 	
 	std::stringstream ss(date_input);
-
-
 
 	for (size_t i = 0; i != date_input.size(); ++i) //Only one space, last char
 		if (databases_line[i] == ' ' && i != date_input.size() - 1)

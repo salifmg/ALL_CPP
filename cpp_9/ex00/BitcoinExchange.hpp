@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 14:57:26 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/01 15:31:15 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:45:09 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
 #include <string>
 #include <utility>
 #include <float.h>
+
 #include <list>
 
 struct Date_n_val { int year, month, day; float value_input; };

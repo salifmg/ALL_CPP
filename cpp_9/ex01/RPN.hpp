@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:34:18 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/08 18:09:09 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/11/05 16:45:09 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+
 #include <stack>
 
 class RPN
