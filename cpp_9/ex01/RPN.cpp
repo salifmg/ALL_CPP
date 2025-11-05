@@ -6,7 +6,7 @@
 /*   By: smagassa <smagassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:34:20 by smagassa          #+#    #+#             */
-/*   Updated: 2025/10/08 18:13:44 by smagassa         ###   ########.fr       */
+/*   Updated: 2025/11/05 18:03:32 by smagassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void RPN::Take_while_numbers(std::string str)
 			Calculate(tmp[0]);
 		}
 		else 
-			to_calculate.push(tmp[0]-'0');
+			to_calculate.push(tmp[0]-'0'); //take values
 	}
 	if (to_calculate.size() == 1) //if calculus over but more than one number
 		std::cout << to_calculate.top() << std::endl;
@@ -81,10 +81,10 @@ void RPN::Calculate(char oper){
 	if (to_calculate.size() < 2) //calculus but with less than 2 numbers
 		throw std::runtime_error("Error");
 
-	b = to_calculate.top();
-	to_calculate.pop();
-	a = to_calculate.top();
-	to_calculate.pop();
+	b = to_calculate.top();// last value added
+	to_calculate.pop(); // deletes it
+	a = to_calculate.top();// first value added
+	to_calculate.pop();// deletes it
 	switch (oper)
 	{
 		case '+':
